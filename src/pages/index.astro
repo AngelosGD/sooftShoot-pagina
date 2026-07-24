@@ -1,11 +1,178 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-	<Welcome />
+  <nav class="fixed top-0 inset-x-0 z-50">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-2 text-lg font-semibold tracking-tight">
+          <span class="size-7 rounded-lg bg-accent flex items-center justify-center text-xs font-bold text-white">S</span>
+          soofShoot
+        </a>
+        <div class="flex items-center gap-6 text-sm text-muted">
+          <a href="#features" class="hover:text-foreground transition-colors">Funciones</a>
+          <a href="#download" class="hover:text-foreground transition-colors">Descargar</a>
+          <a href="https://github.com/AngelosGD/soofShoot" class="hover:text-foreground transition-colors" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="min-h-[100dvh] flex items-center relative overflow-hidden pt-16">
+      <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="absolute -top-40 -right-40 size-[500px] rounded-full bg-accent/10 blur-3xl" />
+        <div class="absolute -bottom-40 -left-40 size-[400px] rounded-full bg-accent/5 blur-3xl" />
+      </div>
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 w-full">
+        <div class="max-w-2xl">
+          <p class="text-xs uppercase tracking-[0.2em] text-muted mb-6 font-mono">Screen Capture · Reimagined</p>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tighter leading-none mb-6">
+            Captura, edita y lleva<br />tus capturas a otro nivel
+          </h1>
+          <p class="text-base sm:text-lg text-muted leading-relaxed max-w-[65ch] mb-8">
+            Una herramienta de escritorio que transforma capturas de pantalla en imágenes pulidas con edición,
+            mockups de dispositivos, OCR, y exportación directa.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="#download" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-accent text-white font-medium text-sm hover:bg-accent/90 transition-all active:scale-[0.98]">
+              Descargar gratis
+              <svg class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"/></svg>
+            </a>
+            <a href="#features" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border text-sm font-medium hover:bg-surface transition-all active:scale-[0.98]">
+              Conocer más
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="py-24 sm:py-32">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <div class="max-w-2xl mb-16">
+          <p class="text-xs uppercase tracking-[0.2em] text-muted mb-4 font-mono">Funcionalidades</p>
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tighter">Todo lo que necesitas para capturas impecables</h2>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div class="reveal rounded-2xl border border-border bg-surface/50 p-6 hover:bg-surface transition-colors">
+            <div class="size-10 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+              <svg class="size-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m6 7.5 3 2.25L15 6"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 9.75a16.5 16.5 0 0 1 16.5 0M21 12a16.5 16.5 0 0 0-16.5 0M3.75 12.75a16.5 16.5 0 0 1 16.5 0"/></svg>
+            </div>
+            <h3 class="font-semibold mb-2">Captura inteligente</h3>
+            <p class="text-sm text-muted leading-relaxed">Selecciona cualquier región de tu pantalla con atajos de teclado personalizables. Captura al instante sin interrupciones.</p>
+          </div>
+          <div class="reveal rounded-2xl border border-border bg-surface/50 p-6 hover:bg-surface transition-colors" style="transition-delay:0.1s">
+            <div class="size-10 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+              <svg class="size-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m9.53 16.122-3.475 3.475m0 0a1.5 1.5 0 0 1-2.12-2.12l3.475-3.475m2.12 2.12a3.375 3.375 0 0 0 3.708-4.092m0 0a3.375 3.375 0 0 0-4.092-3.708m0 0a3.375 3.375 0 0 0-3.708 4.092m0 0a3.375 3.375 0 0 0 4.092 3.708m3.708-4.092 3.475-3.475m0 0a1.5 1.5 0 0 1 2.12 2.12l-3.475 3.475"/></svg>
+            </div>
+            <h3 class="font-semibold mb-2">Edita al detalle</h3>
+            <p class="text-sm text-muted leading-relaxed">Ajusta fondo, padding, filtros, bordes, sombras, esquinas redondeadas y rotación 3D. Recorta con precisión.</p>
+          </div>
+          <div class="reveal rounded-2xl border border-border bg-surface/50 p-6 hover:bg-surface transition-colors" style="transition-delay:0.2s">
+            <div class="size-10 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+              <svg class="size-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"/></svg>
+            </div>
+            <h3 class="font-semibold mb-2">Mockups profesionales</h3>
+            <p class="text-sm text-muted leading-relaxed">Superpone tus capturas en dispositivos iPhone, iPad o Mac. Ideal para presentaciones y portfolios.</p>
+          </div>
+          <div class="reveal rounded-2xl border border-border bg-surface/50 p-6 hover:bg-surface transition-colors" style="transition-delay:0.1s">
+            <div class="size-10 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+              <svg class="size-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m6.75 7.5 3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0 0 21 18V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v12a2.25 2.25 0 0 0 2.25 2.25Z"/></svg>
+            </div>
+            <h3 class="font-semibold mb-2">OCR + Código</h3>
+            <p class="text-sm text-muted leading-relaxed">Extrae texto de tus capturas con Tesseract.js. Detecta y formatea código automáticamente con Prettify.</p>
+          </div>
+          <div class="reveal rounded-2xl border border-border bg-surface/50 p-6 hover:bg-surface transition-colors" style="transition-delay:0.2s">
+            <div class="size-10 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+              <svg class="size-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
+            </div>
+            <h3 class="font-semibold mb-2">Exporta fácil</h3>
+            <p class="text-sm text-muted leading-relaxed">Descarga en PNG, JPEG o WebP. Exporta a PDF por lote, copia al portapapeles o inserta directamente en Word.</p>
+          </div>
+          <div class="reveal rounded-2xl border border-border bg-surface/50 p-6 hover:bg-surface transition-colors" style="transition-delay:0.3s">
+            <div class="size-10 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+              <svg class="size-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m9 14.25 6-6m4.5-3.493V21.75l-3.75-1.5-3.75 1.5-3.75-1.5-3.75 1.5V4.5c0-.75.188-1.457.518-2.07m5.732 0A2.25 2.25 0 0 1 16.5 3.75"/></svg>
+            </div>
+            <h3 class="font-semibold mb-2">100% gratis</h3>
+            <p class="text-sm text-muted leading-relaxed">Sin cuentas, sin suscripciones. Todas las funciones son libres. Solo descarga y empieza a usar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="download" class="py-24 sm:py-32 relative overflow-hidden">
+      <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[600px] rounded-full bg-accent/5 blur-3xl" />
+      </div>
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 text-center relative">
+        <p class="text-xs uppercase tracking-[0.2em] text-muted mb-4 font-mono">Consíguelo ahora</p>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tighter mb-4">Descarga soofShoot</h2>
+        <p class="text-muted max-w-xl mx-auto mb-10 leading-relaxed">Disponible para Windows. Próximamente en macOS.</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a class="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-accent text-white font-medium hover:bg-accent/90 transition-all active:scale-[0.98] cursor-pointer">
+            <svg class="size-5" fill="currentColor" viewBox="0 0 24 24"><path d="M3.5 2.75a.75.75 0 0 1 .75-.75h12.5a.75.75 0 0 1 .53.22l4 4a.75.75 0 0 1 .22.53v13.5a.75.75 0 0 1-.75.75H4.25a.75.75 0 0 1-.75-.75V2.75Zm2.25.75v17h12.5V7.56L14.44 3.5H5.75Z"/><path d="M10.5 12.44V8.25a.75.75 0 0 1 1.5 0v4.19l1.72-1.72a.75.75 0 1 1 1.06 1.06l-3 3a.75.75 0 0 1-1.06 0l-3-3a.75.75 0 1 1 1.06-1.06l1.72 1.72Z"/></svg>
+            Descargar para Windows
+          </a>
+          <a class="inline-flex items-center gap-3 px-8 py-4 rounded-xl border border-border text-muted font-medium cursor-not-allowed opacity-60">
+            <svg class="size-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.5-.6 1.02-1.09 1.69-1.48.66-.39 1.3-.52 1.87-.52.04.65-.17 1.29-.62 1.83-.46.55-1.06 1.02-1.72 1.34-.66.32-1.3.47-1.87.45-.04-.63.14-1.26.65-1.82Z"/></svg>
+            Próximamente en macOS
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-border py-12">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted">
+        <div class="flex items-center gap-2">
+          <span class="size-6 rounded-lg bg-accent flex items-center justify-center text-[10px] font-bold text-white">S</span>
+          <span>soofShoot</span>
+        </div>
+        <p>&copy; {new Date().getFullYear()} soofShoot. Hecho con dedicación.</p>
+        <div class="flex items-center gap-6">
+          <a href="https://github.com/AngelosGD/soofShoot" class="hover:text-foreground transition-colors" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="mailto:hello@soofshoot.app" class="hover:text-foreground transition-colors">Contacto</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 </Layout>
+
+<style is:global>
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        }
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+    );
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  } else {
+    document.querySelectorAll(".reveal").forEach((el) => el.classList.add("visible"));
+  }
+</script>
