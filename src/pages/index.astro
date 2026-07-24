@@ -1,13 +1,20 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const logo = `<svg viewBox="0 0 48 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="1" width="15" height="18" rx="3.5" stroke="currentColor" stroke-width="1.5"/>
+  <rect x="33" y="1" width="15" height="18" rx="3.5" stroke="currentColor" stroke-width="1.5"/>
+  <line x1="15" y1="10" x2="33" y2="10" stroke="currentColor" stroke-width="1.5"/>
+  <text x="24" y="14.5" font-family="Geist,sans-serif" font-weight="700" font-size="10" fill="currentColor" text-anchor="middle">SS</text>
+</svg>`;
 ---
 
 <Layout>
   <nav class="fixed top-0 inset-x-0 z-50">
     <div class="mx-auto max-w-6xl px-4 sm:px-6">
       <div class="flex items-center justify-between h-16">
-        <a href="/" class="flex items-center gap-2 text-lg font-semibold tracking-tight">
-          <span class="size-7 rounded-lg bg-accent flex items-center justify-center text-xs font-bold text-white">S</span>
+        <a href="/" class="flex items-center gap-2 text-base font-semibold tracking-tight">
+          <span class="size-7 text-foreground" set:html={logo} />
           soofShoot
         </a>
         <div class="flex items-center gap-6 text-sm text-muted">
@@ -22,21 +29,28 @@ import Layout from "../layouts/Layout.astro";
   <main>
     <section class="min-h-[100dvh] flex items-center relative overflow-hidden pt-16">
       <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div class="absolute -top-40 -right-40 size-[500px] rounded-full bg-accent/10 blur-3xl" />
-        <div class="absolute -bottom-40 -left-40 size-[400px] rounded-full bg-accent/5 blur-3xl" />
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[700px] rounded-full bg-foreground/[0.02] blur-3xl" />
       </div>
       <div class="mx-auto max-w-6xl px-4 sm:px-6 w-full">
         <div class="max-w-2xl">
           <p class="text-xs uppercase tracking-[0.2em] text-muted mb-6 font-mono">Screen Capture · Reimagined</p>
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tighter leading-none mb-6">
-            Captura, edita y lleva<br />tus capturas a otro nivel
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tighter leading-none mb-5">
+            La forma más limpia de<br />capturar y presentar ideas
           </h1>
-          <p class="text-base sm:text-lg text-muted leading-relaxed max-w-[65ch] mb-8">
-            Una herramienta de escritorio que transforma capturas de pantalla en imágenes pulidas con edición,
-            mockups de dispositivos, OCR, y exportación directa.
+          <p class="text-base sm:text-lg text-muted leading-relaxed max-w-[65ch] mb-6">
+            Seleccioná cualquier región de tu pantalla, editála al detalle con herramientas de canvas,
+            superponé mockups de dispositivos, extraé texto con OCR y exportá a PNG, PDF o directo a Word.
+            <span class="text-foreground"> Sin cuentas, sin límites, sin distracciones.</span>
           </p>
+          <div class="flex flex-wrap gap-2 mb-8">
+            <span class="px-3 py-1.5 rounded-lg bg-surface border border-border text-xs text-muted font-mono">Atajos personalizables</span>
+            <span class="px-3 py-1.5 rounded-lg bg-surface border border-border text-xs text-muted font-mono">Edición en canvas</span>
+            <span class="px-3 py-1.5 rounded-lg bg-surface border border-border text-xs text-muted font-mono">Mockups 3D</span>
+            <span class="px-3 py-1.5 rounded-lg bg-surface border border-border text-xs text-muted font-mono">OCR + Código</span>
+            <span class="px-3 py-1.5 rounded-lg bg-surface border border-border text-xs text-muted font-mono">Exportación multipropósito</span>
+          </div>
           <div class="flex flex-wrap gap-4">
-            <a href="#download" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-accent text-white font-medium text-sm hover:bg-accent/90 transition-all active:scale-[0.98]">
+            <a href="#download" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-foreground text-background font-medium text-sm hover:bg-foreground/90 transition-all active:scale-[0.98]">
               Descargar gratis
               <svg class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"/></svg>
             </a>
@@ -55,62 +69,59 @@ import Layout from "../layouts/Layout.astro";
           <h2 class="text-3xl sm:text-4xl font-bold tracking-tighter">Todo lo que necesitas para capturas impecables</h2>
         </div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div class="reveal rounded-2xl border border-border bg-surface/50 p-6 hover:bg-surface transition-colors">
-            <div class="size-10 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
-              <svg class="size-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m6 7.5 3 2.25L15 6"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 9.75a16.5 16.5 0 0 1 16.5 0M21 12a16.5 16.5 0 0 0-16.5 0M3.75 12.75a16.5 16.5 0 0 1 16.5 0"/></svg>
+          <div class="group reveal rounded-2xl border border-border bg-surface/50 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-foreground/20 hover:bg-surface">
+            <div class="size-10 rounded-xl bg-foreground/5 flex items-center justify-center mb-4 group-hover:bg-foreground/10 transition-colors">
+              <svg class="size-5 text-foreground/70" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m6 7.5 3 2.25L15 6"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 9.75a16.5 16.5 0 0 1 16.5 0M21 12a16.5 16.5 0 0 0-16.5 0M3.75 12.75a16.5 16.5 0 0 1 16.5 0"/></svg>
             </div>
             <h3 class="font-semibold mb-2">Captura inteligente</h3>
-            <p class="text-sm text-muted leading-relaxed">Selecciona cualquier región de tu pantalla con atajos de teclado personalizables. Captura al instante sin interrupciones.</p>
+            <p class="text-sm text-muted leading-relaxed">Seleccioná cualquier región con atajos de teclado personalizables. Capturá al instante sin interrupciones.</p>
           </div>
-          <div class="reveal rounded-2xl border border-border bg-surface/50 p-6 hover:bg-surface transition-colors" style="transition-delay:0.1s">
-            <div class="size-10 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
-              <svg class="size-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m9.53 16.122-3.475 3.475m0 0a1.5 1.5 0 0 1-2.12-2.12l3.475-3.475m2.12 2.12a3.375 3.375 0 0 0 3.708-4.092m0 0a3.375 3.375 0 0 0-4.092-3.708m0 0a3.375 3.375 0 0 0-3.708 4.092m0 0a3.375 3.375 0 0 0 4.092 3.708m3.708-4.092 3.475-3.475m0 0a1.5 1.5 0 0 1 2.12 2.12l-3.475 3.475"/></svg>
+          <div class="group reveal rounded-2xl border border-border bg-surface/50 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-foreground/20 hover:bg-surface" style="transition-delay:0.1s">
+            <div class="size-10 rounded-xl bg-foreground/5 flex items-center justify-center mb-4 group-hover:bg-foreground/10 transition-colors">
+              <svg class="size-5 text-foreground/70" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m9.53 16.122-3.475 3.475m0 0a1.5 1.5 0 0 1-2.12-2.12l3.475-3.475m2.12 2.12a3.375 3.375 0 0 0 3.708-4.092m0 0a3.375 3.375 0 0 0-4.092-3.708m0 0a3.375 3.375 0 0 0-3.708 4.092m0 0a3.375 3.375 0 0 0 4.092 3.708m3.708-4.092 3.475-3.475m0 0a1.5 1.5 0 0 1 2.12 2.12l-3.475 3.475"/></svg>
             </div>
-            <h3 class="font-semibold mb-2">Edita al detalle</h3>
-            <p class="text-sm text-muted leading-relaxed">Ajusta fondo, padding, filtros, bordes, sombras, esquinas redondeadas y rotación 3D. Recorta con precisión.</p>
+            <h3 class="font-semibold mb-2">Edición completa</h3>
+            <p class="text-sm text-muted leading-relaxed">Fondo, padding, filtros, bordes, sombras, esquinas redondeadas, rotación 3D y recorte preciso.</p>
           </div>
-          <div class="reveal rounded-2xl border border-border bg-surface/50 p-6 hover:bg-surface transition-colors" style="transition-delay:0.2s">
-            <div class="size-10 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
-              <svg class="size-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"/></svg>
+          <div class="group reveal rounded-2xl border border-border bg-surface/50 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-foreground/20 hover:bg-surface" style="transition-delay:0.2s">
+            <div class="size-10 rounded-xl bg-foreground/5 flex items-center justify-center mb-4 group-hover:bg-foreground/10 transition-colors">
+              <svg class="size-5 text-foreground/70" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"/></svg>
             </div>
             <h3 class="font-semibold mb-2">Mockups profesionales</h3>
-            <p class="text-sm text-muted leading-relaxed">Superpone tus capturas en dispositivos iPhone, iPad o Mac. Ideal para presentaciones y portfolios.</p>
+            <p class="text-sm text-muted leading-relaxed">Superponé tus capturas en iPhone, iPad o Mac. Ideal para presentaciones y portfolios.</p>
           </div>
-          <div class="reveal rounded-2xl border border-border bg-surface/50 p-6 hover:bg-surface transition-colors" style="transition-delay:0.1s">
-            <div class="size-10 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
-              <svg class="size-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m6.75 7.5 3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0 0 21 18V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v12a2.25 2.25 0 0 0 2.25 2.25Z"/></svg>
+          <div class="group reveal rounded-2xl border border-border bg-surface/50 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-foreground/20 hover:bg-surface" style="transition-delay:0.1s">
+            <div class="size-10 rounded-xl bg-foreground/5 flex items-center justify-center mb-4 group-hover:bg-foreground/10 transition-colors">
+              <svg class="size-5 text-foreground/70" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m6.75 7.5 3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0 0 21 18V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v12a2.25 2.25 0 0 0 2.25 2.25Z"/></svg>
             </div>
             <h3 class="font-semibold mb-2">OCR + Código</h3>
-            <p class="text-sm text-muted leading-relaxed">Extrae texto de tus capturas con Tesseract.js. Detecta y formatea código automáticamente con Prettify.</p>
+            <p class="text-sm text-muted leading-relaxed">Extraé texto con Tesseract.js. Detecta y formatea código automáticamente y copialo al instante.</p>
           </div>
-          <div class="reveal rounded-2xl border border-border bg-surface/50 p-6 hover:bg-surface transition-colors" style="transition-delay:0.2s">
-            <div class="size-10 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
-              <svg class="size-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
+          <div class="group reveal rounded-2xl border border-border bg-surface/50 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-foreground/20 hover:bg-surface" style="transition-delay:0.2s">
+            <div class="size-10 rounded-xl bg-foreground/5 flex items-center justify-center mb-4 group-hover:bg-foreground/10 transition-colors">
+              <svg class="size-5 text-foreground/70" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
             </div>
-            <h3 class="font-semibold mb-2">Exporta fácil</h3>
-            <p class="text-sm text-muted leading-relaxed">Descarga en PNG, JPEG o WebP. Exporta a PDF por lote, copia al portapapeles o inserta directamente en Word.</p>
+            <h3 class="font-semibold mb-2">Exportación versátil</h3>
+            <p class="text-sm text-muted leading-relaxed">PNG, JPEG o WebP. Exportá PDF por lote, copiá al portapapeles o insertá directo en Word.</p>
           </div>
-          <div class="reveal rounded-2xl border border-border bg-surface/50 p-6 hover:bg-surface transition-colors" style="transition-delay:0.3s">
-            <div class="size-10 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
-              <svg class="size-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m9 14.25 6-6m4.5-3.493V21.75l-3.75-1.5-3.75 1.5-3.75-1.5-3.75 1.5V4.5c0-.75.188-1.457.518-2.07m5.732 0A2.25 2.25 0 0 1 16.5 3.75"/></svg>
+          <div class="group reveal rounded-2xl border border-border bg-surface/50 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-foreground/20 hover:bg-surface" style="transition-delay:0.3s">
+            <div class="size-10 rounded-xl bg-foreground/5 flex items-center justify-center mb-4 group-hover:bg-foreground/10 transition-colors">
+              <svg class="size-5 text-foreground/70" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m9 14.25 6-6m4.5-3.493V21.75l-3.75-1.5-3.75 1.5-3.75-1.5-3.75 1.5V4.5c0-.75.188-1.457.518-2.07m5.732 0A2.25 2.25 0 0 1 16.5 3.75"/></svg>
             </div>
             <h3 class="font-semibold mb-2">100% gratis</h3>
-            <p class="text-sm text-muted leading-relaxed">Sin cuentas, sin suscripciones. Todas las funciones son libres. Solo descarga y empieza a usar.</p>
+            <p class="text-sm text-muted leading-relaxed">Sin cuentas, sin suscripciones, sin límites ocultos. Descargá y empezá a usar al instante.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="download" class="py-24 sm:py-32 relative overflow-hidden">
-      <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[600px] rounded-full bg-accent/5 blur-3xl" />
-      </div>
-      <div class="mx-auto max-w-6xl px-4 sm:px-6 text-center relative">
+    <section id="download" class="py-24 sm:py-32">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 text-center">
         <p class="text-xs uppercase tracking-[0.2em] text-muted mb-4 font-mono">Consíguelo ahora</p>
-        <h2 class="text-3xl sm:text-4xl font-bold tracking-tighter mb-4">Descarga soofShoot</h2>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tighter mb-4">Descargá soofShoot</h2>
         <p class="text-muted max-w-xl mx-auto mb-10 leading-relaxed">Disponible para Windows. Próximamente en macOS.</p>
         <div class="flex flex-wrap justify-center gap-4">
-          <a class="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-accent text-white font-medium hover:bg-accent/90 transition-all active:scale-[0.98] cursor-pointer">
+          <a class="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-foreground text-background font-medium hover:bg-foreground/90 transition-all active:scale-[0.98] cursor-pointer">
             <svg class="size-5" fill="currentColor" viewBox="0 0 24 24"><path d="M3.5 2.75a.75.75 0 0 1 .75-.75h12.5a.75.75 0 0 1 .53.22l4 4a.75.75 0 0 1 .22.53v13.5a.75.75 0 0 1-.75.75H4.25a.75.75 0 0 1-.75-.75V2.75Zm2.25.75v17h12.5V7.56L14.44 3.5H5.75Z"/><path d="M10.5 12.44V8.25a.75.75 0 0 1 1.5 0v4.19l1.72-1.72a.75.75 0 1 1 1.06 1.06l-3 3a.75.75 0 0 1-1.06 0l-3-3a.75.75 0 1 1 1.06-1.06l1.72 1.72Z"/></svg>
             Descargar para Windows
           </a>
@@ -127,7 +138,7 @@ import Layout from "../layouts/Layout.astro";
     <div class="mx-auto max-w-6xl px-4 sm:px-6">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted">
         <div class="flex items-center gap-2">
-          <span class="size-6 rounded-lg bg-accent flex items-center justify-center text-[10px] font-bold text-white">S</span>
+          <span class="size-6 text-foreground" set:html={logo} />
           <span>soofShoot</span>
         </div>
         <p>&copy; {new Date().getFullYear()} soofShoot. Hecho con dedicación.</p>
