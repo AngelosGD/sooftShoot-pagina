@@ -5,92 +5,98 @@ const logo = `<svg viewBox="0 0 48 20" fill="none" xmlns="http://www.w3.org/2000
   <rect x="0" y="1" width="15" height="18" rx="3.5" stroke="currentColor" stroke-width="1.5"/>
   <rect x="33" y="1" width="15" height="18" rx="3.5" stroke="currentColor" stroke-width="1.5"/>
   <line x1="15" y1="10" x2="33" y2="10" stroke="currentColor" stroke-width="1.5"/>
-  <text x="24" y="14.5" font-family="Geist,sans-serif" font-weight="700" font-size="10" fill="currentColor" text-anchor="middle">SS</text>
+  <text x="24" y="14.5" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="10" fill="currentColor" text-anchor="middle">SS</text>
 </svg>`;
 ---
 
 <Layout>
-  <div id="nav-sentinel" aria-hidden="true" class="h-16"></div>
+  <div id="nav-sentinel" aria-hidden="true"></div>
 
-  <header id="site-nav" class="fixed top-0 inset-x-0 z-50">
-    <div class="nav-inner">
-      <div class="mx-auto max-w-6xl px-4 sm:px-6 flex items-center justify-between h-full">
-        <a href="/" class="flex items-center gap-2 text-base font-semibold tracking-tight">
-          <span class="size-7 text-foreground" set:html={logo} />
-          soofShoot
-        </a>
-        <nav class="flex items-center gap-7 text-sm text-muted">
-          <a href="#features" class="nav-link">Funciones</a>
-          <a href="#download" class="nav-link">Descargar</a>
-          <a href="https://github.com/AngelosGD/soofShoot" class="nav-link" target="_blank" rel="noopener noreferrer">GitHub</a>
-        </nav>
-      </div>
+  <header id="site-nav" class="fixed top-4 inset-x-0 z-50 px-4">
+    <div class="nav-capsule mx-auto max-w-3xl">
+      <a href="/" class="flex items-center gap-2 text-sm font-semibold tracking-tight">
+        <span class="size-6 text-foreground" set:html={logo} />
+        soofShoot
+      </a>
+      <nav class="hidden sm:flex items-center gap-1 text-sm text-muted">
+        <a href="#features" class="nav-pill">Funciones</a>
+        <a href="#download" class="nav-pill">Descargar</a>
+      </nav>
+      <a href="https://github.com/AngelosGD/soofShoot" class="gh-chip" target="_blank" rel="noopener noreferrer">
+        GitHub
+        <svg class="size-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17 17 7m0 0H8m9 0v9"/></svg>
+      </a>
     </div>
   </header>
 
   <main>
-    <section class="relative overflow-hidden min-h-[100dvh] flex items-center pt-28 pb-16">
-      <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div class="glow glow-a -top-48 -left-40 size-[620px]"></div>
-        <div class="glow glow-b top-[58%] -right-56 size-[700px]"></div>
+    <section class="relative min-h-[100dvh] overflow-hidden flex items-center justify-center pt-32 pb-24 text-center">
+      <div class="absolute inset-0" aria-hidden="true">
+        <div class="orb-layer">
+          <div class="orb orb-a"></div>
+          <div class="orb orb-b"></div>
+        </div>
+        <div class="dot-grid"></div>
       </div>
-      <div class="relative mx-auto max-w-6xl px-4 sm:px-6 w-full">
-        <p class="hero-e font-mono text-xs uppercase tracking-[0.22em] text-muted mb-6" style="animation-delay:0s">
-          <span class="mr-3 inline-block size-1.5 rounded-full bg-accent align-middle shadow-[0_0_10px_rgb(56_189_248/0.8)]"></span>Screen Capture · Reimagined
-        </p>
-        <h1 class="hero-e text-4xl sm:text-6xl lg:text-7xl font-semibold tracking-[-0.035em] leading-[1.05] mb-6" style="animation-delay:0.09s">
-          La forma más limpia de<br class="hidden lg:block" />capturar y presentar ideas
+      <div class="relative mx-auto max-w-4xl px-4 sm:px-6">
+        <p class="hero-e eyebrow mb-6" style="animation-delay:0s">Screen Capture · Reimagined</p>
+        <h1 class="hero-e text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-[-0.04em] leading-[1.04] mb-6" style="animation-delay:0.1s">
+          La forma más limpia de<br class="hidden lg:block" /> capturar y presentar ideas
         </h1>
-        <p class="hero-e text-base sm:text-lg text-muted leading-relaxed max-w-[62ch] mb-9" style="animation-delay:0.18s">
+        <p class="hero-e text-base sm:text-lg text-muted leading-relaxed max-w-[58ch] mx-auto mb-10" style="animation-delay:0.2s">
           Seleccioná cualquier región de tu pantalla, editála al detalle con herramientas de canvas,
           superponé mockups de dispositivos, extraé texto con OCR y exportá a PNG, PDF o directo a Word.
           <span class="text-foreground"> Sin cuentas, sin límites, sin distracciones.</span>
         </p>
-        <div class="hero-e flex flex-wrap gap-4" style="animation-delay:0.27s">
-          <a href="#download" class="group inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-foreground text-background font-medium text-sm transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_8px_36px_-8px_rgb(56_189_248/0.45)] active:translate-y-0 active:scale-[0.98]">
+        <div class="hero-e flex flex-wrap justify-center gap-3" style="animation-delay:0.3s">
+          <a href="#download" class="group inline-flex items-center gap-2 px-7 py-3 rounded-full bg-foreground text-background font-medium text-sm cursor-pointer transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_10px_40px_-10px_rgb(52_211_153/0.5)] active:translate-y-0 active:scale-[0.97]">
             Descargar gratis
             <svg class="size-4 transition-transform duration-300 ease-out group-hover:translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"/></svg>
           </a>
-          <a href="#features" class="inline-flex items-center px-6 py-3 rounded-xl border border-border text-sm font-medium transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.04] active:translate-y-0 active:scale-[0.98]">
+          <a href="#features" class="inline-flex items-center px-7 py-3 rounded-full border border-border text-sm font-medium transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/[0.04] active:translate-y-0 active:scale-[0.97]">
             Conocer más
           </a>
         </div>
       </div>
     </section>
 
-    <section aria-label="Características clave" class="relative border-y border-border/50 bg-white/[0.015]">
-      <ul class="mx-auto max-w-6xl px-4 sm:px-6 py-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
-        <li class="reveal font-mono text-xs uppercase tracking-[0.15em] text-muted before:content-[''] before:inline-block before:size-1 before:rounded-full before:bg-accent/70 before:mr-3 before:align-middle" style="--reveal-delay:0ms">Atajos personalizables</li>
-        <li class="reveal font-mono text-xs uppercase tracking-[0.15em] text-muted before:content-[''] before:inline-block before:size-1 before:rounded-full before:bg-accent/70 before:mr-3 before:align-middle" style="--reveal-delay:60ms">Edición en canvas</li>
-        <li class="reveal font-mono text-xs uppercase tracking-[0.15em] text-muted before:content-[''] before:inline-block before:size-1 before:rounded-full before:bg-accent/70 before:mr-3 before:align-middle" style="--reveal-delay:120ms">Mockups 3D</li>
-        <li class="reveal font-mono text-xs uppercase tracking-[0.15em] text-muted before:content-[''] before:inline-block before:size-1 before:rounded-full before:bg-accent/70 before:mr-3 before:align-middle" style="--reveal-delay:180ms">OCR + Código</li>
-        <li class="reveal font-mono text-xs uppercase tracking-[0.15em] text-muted before:content-[''] before:inline-block before:size-1 before:rounded-full before:bg-accent/70 before:mr-3 before:align-middle" style="--reveal-delay:240ms">Exportación multipropósito</li>
-      </ul>
+    <section aria-label="Características clave" class="marquee-strip relative border-y border-white/[0.06] py-5 overflow-hidden">
+      <div class="marquee-track">
+        <ul class="marquee-group">
+          <li class="marquee-item">Atajos personalizables</li>
+          <li class="marquee-item">Edición en canvas</li>
+          <li class="marquee-item">Mockups 3D</li>
+          <li class="marquee-item">OCR + Código</li>
+          <li class="marquee-item">Exportación multipropósito</li>
+        </ul>
+        <ul class="marquee-group" aria-hidden="true">
+          <li class="marquee-item">Atajos personalizables</li>
+          <li class="marquee-item">Edición en canvas</li>
+          <li class="marquee-item">Mockups 3D</li>
+          <li class="marquee-item">OCR + Código</li>
+          <li class="marquee-item">Exportación multipropósito</li>
+        </ul>
+      </div>
     </section>
 
-    <section id="features" class="relative py-24 sm:py-32">
+    <section id="features" class="relative py-28 sm:py-36">
       <div class="mx-auto max-w-6xl px-4 sm:px-6">
-        <div class="reveal max-w-2xl mb-12 sm:mb-16" style="--reveal-delay:0ms">
-          <p class="font-mono text-xs uppercase tracking-[0.22em] text-muted mb-4">
-            <span class="mr-3 inline-block size-1.5 rounded-full bg-accent align-middle shadow-[0_0_10px_rgb(56_189_248/0.8)]"></span>Funcionalidades
-          </p>
-          <h2 class="text-3xl sm:text-5xl font-semibold tracking-[-0.03em] leading-[1.1]">Todo lo que necesitas para capturas impecables</h2>
+        <div class="reveal max-w-2xl mx-auto text-center mb-14 sm:mb-20" style="--reveal-delay:0ms">
+          <p class="eyebrow mb-5 inline-block">Funcionalidades</p>
+          <h2 class="text-3xl sm:text-5xl font-semibold tracking-[-0.03em] leading-[1.08]">Todo lo que necesitas para capturas impecables</h2>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4">
-          <!-- Edición completa — card destacada con placeholder de screenshot -->
-          <article class="reveal bento-card group p-6 sm:p-8 flex flex-col sm:col-span-2 lg:col-span-7" style="--reveal-delay:0ms">
-            <div class="flex items-start gap-4 mb-6">
-              <div class="bento-icon">
+          <!-- TODO: reemplazar por captura real de la app (editor de canvas) -->
+          <article class="reveal spot-card bento-card group p-6 sm:p-8 grid sm:grid-cols-[1fr_1.15fr] gap-6 sm:col-span-2 lg:col-span-7" style="--reveal-delay:60ms">
+            <div class="flex flex-col items-start">
+              <div class="bento-icon mb-5">
                 <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"/></svg>
               </div>
-              <div>
-                <h3 class="font-semibold mb-1">Edición completa</h3>
-                <p class="text-sm text-muted leading-relaxed max-w-[52ch]">Fondo, padding, filtros, bordes, sombras, esquinas redondeadas, rotación 3D y recorte preciso.</p>
-              </div>
+              <h3 class="font-semibold text-lg mb-2">Edición completa</h3>
+              <p class="text-sm text-muted leading-relaxed">Fondo, padding, filtros, bordes, sombras, esquinas redondeadas, rotación 3D y recorte preciso.</p>
             </div>
-            <!-- TODO: reemplazar por captura real de la app (editor de canvas) -->
-            <figure class="shot-placeholder mt-auto aspect-[16/9]" role="img" aria-label="Vista previa del editor de canvas de soofShoot (captura pendiente)">
+            <figure class="shot-placeholder min-h-[200px] sm:min-h-[260px]" role="img" aria-label="Vista previa del editor de canvas de soofShoot (captura pendiente)">
               <span class="absolute left-3 top-3 size-3.5 rounded-[3px] border-l-2 border-t-2 border-accent/50"></span>
               <span class="absolute right-3 top-3 size-3.5 rounded-[3px] border-r-2 border-t-2 border-accent/50"></span>
               <span class="absolute bottom-3 left-3 size-3.5 rounded-[3px] border-b-2 border-l-2 border-accent/50"></span>
@@ -101,18 +107,17 @@ const logo = `<svg viewBox="0 0 48 20" fill="none" xmlns="http://www.w3.org/2000
             </figure>
           </article>
 
-          <!-- Mockups profesionales — card destacada con placeholder de screenshot -->
-          <article class="reveal bento-card group p-6 sm:p-8 flex flex-col sm:col-span-2 lg:col-span-5" style="--reveal-delay:70ms">
-            <div class="flex items-start gap-4 mb-6">
+          <!-- TODO: reemplazar por captura real de la app (mockups de dispositivos) -->
+          <article class="reveal spot-card bento-card group p-6 sm:p-8 flex flex-col sm:col-span-2 lg:col-span-5" style="--reveal-delay:120ms">
+            <div class="flex items-start gap-4 mb-5">
               <div class="bento-icon">
                 <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m9.53 16.122-3.475 3.475m0 0a1.5 1.5 0 0 1-2.12-2.12l3.475-3.475m2.12 2.12a3.375 3.375 0 0 0 3.708-4.092m0 0a3.375 3.375 0 0 0-4.092-3.708m0 0a3.375 3.375 0 0 0-3.708 4.092m0 0a3.375 3.375 0 0 0 4.092 3.708m3.708-4.092 3.475-3.475m0 0a1.5 1.5 0 0 1 2.12 2.12l-3.475 3.475"/></svg>
               </div>
               <div>
-                <h3 class="font-semibold mb-1">Mockups profesionales</h3>
-                <p class="text-sm text-muted leading-relaxed max-w-[52ch]">Superponé tus capturas en iPhone, iPad o Mac. Ideal para presentaciones y portfolios.</p>
+                <h3 class="font-semibold text-lg mb-1">Mockups profesionales</h3>
+                <p class="text-sm text-muted leading-relaxed">Superponé tus capturas en iPhone, iPad o Mac. Ideal para presentaciones y portfolios.</p>
               </div>
             </div>
-            <!-- TODO: reemplazar por captura real de la app (mockups de dispositivos) -->
             <figure class="shot-placeholder mt-auto aspect-[16/10]" role="img" aria-label="Vista previa de mockups de dispositivos de soofShoot (captura pendiente)">
               <span class="absolute left-3 top-3 size-3.5 rounded-[3px] border-l-2 border-t-2 border-accent/50"></span>
               <span class="absolute right-3 top-3 size-3.5 rounded-[3px] border-r-2 border-t-2 border-accent/50"></span>
@@ -124,80 +129,75 @@ const logo = `<svg viewBox="0 0 48 20" fill="none" xmlns="http://www.w3.org/2000
             </figure>
           </article>
 
-          <article class="reveal bento-card group p-6 lg:col-span-4" style="--reveal-delay:140ms">
-            <div class="bento-icon mb-4">
-              <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m6 7.5 3 2.25L15 6"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 9.75a16.5 16.5 0 0 1 16.5 0M21 12a16.5 16.5 0 0 0-16.5 0M3.75 12.75a16.5 16.5 0 0 1 16.5 0"/></svg>
-            </div>
-            <h3 class="font-semibold mb-2">Captura inteligente</h3>
+          <article class="reveal spot-card bento-card group p-7 lg:col-span-4" style="--reveal-delay:180ms">
+            <span class="num-tag">01</span>
+            <h3 class="font-semibold text-lg mt-4 mb-2">Captura inteligente</h3>
             <p class="text-sm text-muted leading-relaxed">Seleccioná cualquier región con atajos de teclado personalizables. Capturá al instante sin interrupciones.</p>
           </article>
 
-          <article class="reveal bento-card group p-6 lg:col-span-4" style="--reveal-delay:210ms">
-            <div class="bento-icon mb-4">
-              <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m6.75 7.5 3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0 0 21 18V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v12a2.25 2.25 0 0 0 2.25 2.25Z"/></svg>
-            </div>
-            <h3 class="font-semibold mb-2">OCR + Código</h3>
+          <article class="reveal spot-card bento-card group p-7 lg:col-span-4" style="--reveal-delay:240ms">
+            <span class="num-tag">02</span>
+            <h3 class="font-semibold text-lg mt-4 mb-2">OCR + Código</h3>
             <p class="text-sm text-muted leading-relaxed">Extraé texto con Tesseract.js. Detecta y formatea código automáticamente y copialo al instante.</p>
           </article>
 
-          <article class="reveal bento-card group p-6 sm:col-span-2 lg:col-span-4" style="--reveal-delay:280ms">
-            <div class="bento-icon mb-4">
-              <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
-            </div>
-            <h3 class="font-semibold mb-2">Exportación versátil</h3>
+          <article class="reveal spot-card bento-card group p-7 lg:col-span-4" style="--reveal-delay:300ms">
+            <span class="num-tag">03</span>
+            <h3 class="font-semibold text-lg mt-4 mb-2">Exportación versátil</h3>
             <p class="text-sm text-muted leading-relaxed">PNG, JPEG o WebP. Exportá PDF por lote, copiá al portapapeles o insertá directo en Word.</p>
           </article>
 
-          <article class="reveal bento-card group p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-7 sm:col-span-2 lg:col-span-12" style="--reveal-delay:350ms">
+          <a href="#download" class="reveal spot-card bento-card group p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-7 sm:col-span-2 lg:col-span-12 cursor-pointer" style="--reveal-delay:360ms">
             <div class="bento-icon">
               <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m9 14.25 6-6m4.5-3.493V21.75l-3.75-1.5-3.75 1.5-3.75-1.5-3.75 1.5V4.5c0-.75.188-1.457.518-2.07m5.732 0A2.25 2.25 0 0 1 16.5 3.75"/></svg>
             </div>
-            <div class="sm:max-w-[62ch]">
-              <h3 class="font-semibold mb-1">100% gratis</h3>
+            <div class="flex-1 sm:max-w-[62ch]">
+              <h3 class="font-semibold text-lg mb-1">100% gratis</h3>
               <p class="text-sm text-muted leading-relaxed">Sin cuentas, sin suscripciones, sin límites ocultos. Descargá y empezá a usar al instante.</p>
             </div>
-          </article>
+            <span class="inline-flex items-center gap-2 font-mono text-sm text-accent shrink-0">
+              Descargar gratis
+              <svg class="size-4 transition-transform duration-300 ease-out group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+            </span>
+          </a>
         </div>
       </div>
     </section>
 
-    <section id="download" class="relative py-24 sm:py-32">
-      <div class="mx-auto max-w-6xl px-4 sm:px-6">
-        <div class="reveal relative overflow-hidden rounded-3xl border border-white/[0.06] bg-surface/30 px-6 py-16 sm:px-12 sm:py-20 text-center" style="--reveal-delay:0ms">
-          <div class="glow glow-a -top-44 left-1/2 -ml-[260px] size-[520px]" aria-hidden="true"></div>
-          <div class="relative">
-            <p class="font-mono text-xs uppercase tracking-[0.22em] text-muted mb-4">
-              <span class="mr-3 inline-block size-1.5 rounded-full bg-accent align-middle shadow-[0_0_10px_rgb(56_189_248/0.8)]"></span>Consíguelo ahora
-            </p>
-            <h2 class="text-3xl sm:text-5xl font-semibold tracking-[-0.03em] leading-[1.1] mb-4">Descargá soofShoot</h2>
-            <p class="text-muted max-w-xl mx-auto mb-10 leading-relaxed">Disponible para Windows. Próximamente en macOS.</p>
-            <div class="flex flex-wrap justify-center gap-4">
-              <a class="group inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-foreground text-background font-medium cursor-pointer transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_8px_40px_-8px_rgb(56_189_248/0.5)] active:translate-y-0 active:scale-[0.98]">
-                <svg class="size-5 transition-transform duration-300 ease-out group-hover:-translate-y-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M3.5 2.75a.75.75 0 0 1 .75-.75h12.5a.75.75 0 0 1 .53.22l4 4a.75.75 0 0 1 .22.53v13.5a.75.75 0 0 1-.75.75H4.25a.75.75 0 0 1-.75-.75V2.75Zm2.25.75v17h12.5V7.56L14.44 3.5H5.75Z"/><path d="M10.5 12.44V8.25a.75.75 0 0 1 1.5 0v4.19l1.72-1.72a.75.75 0 1 1 1.06 1.06l-3 3a.75.75 0 0 1-1.06 0l-3-3a.75.75 0 1 1 1.06-1.06l1.72 1.72Z"/></svg>
-                Descargar para Windows
-              </a>
-              <a class="inline-flex items-center gap-3 px-8 py-4 rounded-xl border border-border text-muted font-medium cursor-not-allowed opacity-60">
-                <svg class="size-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.5-.6 1.02-1.09 1.69-1.48.66-.39 1.3-.52 1.87-.52.04.65-.17 1.29-.62 1.83-.46.55-1.06 1.02-1.72 1.34-.66.32-1.3.47-1.87.45-.04-.63.14-1.26.65-1.82Z"/></svg>
-                Próximamente en macOS
-              </a>
-            </div>
-          </div>
+    <section id="download" class="relative py-28 sm:py-40 overflow-hidden">
+      <div class="pulse-orb top-1/2 left-1/2 -ml-[340px] -mt-[340px] size-[680px]" aria-hidden="true"></div>
+      <div class="reveal relative mx-auto max-w-3xl px-4 sm:px-6 text-center" style="--reveal-delay:0ms">
+        <p class="eyebrow mb-5 inline-block">Consíguelo ahora</p>
+        <h2 class="text-4xl sm:text-6xl font-semibold tracking-[-0.04em] leading-[1.05] mb-5">Descargá soofShoot</h2>
+        <p class="text-muted max-w-md mx-auto mb-10 leading-relaxed">Disponible para Windows. Próximamente en macOS.</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a class="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-foreground text-background font-medium cursor-pointer transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_12px_48px_-12px_rgb(52_211_153/0.55)] active:translate-y-0 active:scale-[0.97]">
+            <svg class="size-5 transition-transform duration-300 ease-out group-hover:-translate-y-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M3.5 2.75a.75.75 0 0 1 .75-.75h12.5a.75.75 0 0 1 .53.22l4 4a.75.75 0 0 1 .22.53v13.5a.75.75 0 0 1-.75.75H4.25a.75.75 0 0 1-.75-.75V2.75Zm2.25.75v17h12.5V7.56L14.44 3.5H5.75Z"/><path d="M10.5 12.44V8.25a.75.75 0 0 1 1.5 0v4.19l1.72-1.72a.75.75 0 1 1 1.06 1.06l-3 3a.75.75 0 0 1-1.06 0l-3-3a.75.75 0 1 1 1.06-1.06l1.72 1.72Z"/></svg>
+            Descargar para Windows
+          </a>
+          <a class="inline-flex items-center gap-3 px-8 py-4 rounded-full border border-border text-muted font-medium cursor-not-allowed opacity-60">
+            <svg class="size-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.5-.6 1.02-1.09 1.69-1.48.66-.39 1.3-.52 1.87-.52.04.65-.17 1.29-.62 1.83-.46.55-1.06 1.02-1.72 1.34-.66.32-1.3.47-1.87.45-.04-.63.14-1.26.65-1.82Z"/></svg>
+            Próximamente en macOS
+          </a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="border-t border-white/[0.06] py-10">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6">
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted">
-        <div class="flex items-center gap-2">
-          <span class="size-6 text-foreground" set:html={logo} />
-          <span>soofShoot</span>
-        </div>
-        <p>&copy; {new Date().getFullYear()} soofShoot. Hecho con dedicación.</p>
-        <div class="flex items-center gap-7">
-          <a href="https://github.com/AngelosGD/soofShoot" class="nav-link" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="mailto:hello@soofshoot.app" class="nav-link">Contacto</a>
+  <footer class="relative border-t border-white/[0.06] overflow-hidden">
+    <p class="footer-mark" aria-hidden="true">soofShoot</p>
+    <div class="relative border-t border-white/[0.06]">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 py-8">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted">
+          <div class="flex items-center gap-2">
+            <span class="size-6 text-foreground" set:html={logo} />
+            <span>soofShoot</span>
+          </div>
+          <p>&copy; {new Date().getFullYear()} soofShoot. Hecho con dedicación.</p>
+          <div class="flex items-center gap-7">
+            <a href="https://github.com/AngelosGD/soofShoot" class="nav-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="mailto:hello@soofshoot.app" class="nav-link">Contacto</a>
+          </div>
         </div>
       </div>
     </div>
@@ -226,7 +226,7 @@ const logo = `<svg viewBox="0 0 48 20" fill="none" xmlns="http://www.w3.org/2000
     revealEls.forEach((el) => io.observe(el));
   }
 
-  // Nav: glass + compacto al hacer scroll
+  // Nav: vidrio más opaco al scrollear
   const nav = document.getElementById("site-nav");
   const sentinel = document.getElementById("nav-sentinel");
   if (nav && sentinel && "IntersectionObserver" in window) {
@@ -236,7 +236,18 @@ const logo = `<svg viewBox="0 0 48 20" fill="none" xmlns="http://www.w3.org/2000
           nav.classList.toggle("nav-scrolled", !entry.isIntersecting);
         }
       },
-      { rootMargin: "-64px 0px 0px 0px" }
+      { rootMargin: "-88px 0px 0px 0px" }
     ).observe(sentinel);
+  }
+
+  // Spotlight que sigue el cursor en las cards
+  if (window.matchMedia("(hover: hover)").matches && !prefersReduced) {
+    document.querySelectorAll<HTMLElement>(".spot-card").forEach((card) => {
+      card.addEventListener("pointermove", (e) => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty("--mx", `${e.clientX - rect.left}px`);
+        card.style.setProperty("--my", `${e.clientY - rect.top}px`);
+      });
+    });
   }
 </script>
