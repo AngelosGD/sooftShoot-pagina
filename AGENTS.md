@@ -1,12 +1,12 @@
 # soofShoot landing page — Astro + Tailwind v4
 
-Dark landing page for soofShoot screen-capture app. Linear/Raycast-style: monochrome + single cyan accent, bento grid, ambient glows. Copy is Spanish (rioplatense) — **never change existing copy**.
+Dark landing page for soofShoot screen-capture app. Attio/Resend-style minimal dark: deep blue-black + single emerald accent, capsule nav, ambient motion, Space Grotesk. Copy is Spanish (rioplatense) — **never change existing copy**.
 
 ## Stack
 - Astro 7.x
 - Tailwind CSS v4 (`@import "tailwindcss"`, `@theme inline` — **no** `tailwind.config.*`)
 - `@tailwindcss/vite` plugin (not PostCSS)
-- Geist / Geist Mono from Google Fonts (linked in `Layout.astro`)
+- Fonts via Google Fonts in `Layout.astro`: **Space Grotesk** (sans/display) + Geist Mono
 
 ## Commands
 | Command | Effect |
@@ -18,37 +18,39 @@ Dark landing page for soofShoot screen-capture app. Linear/Raycast-style: monoch
 ## Design tokens (`src/styles/globals.css`)
 | Variable | Value |
 |---|---|
-| `--color-background` | `#09090b` (zinc-950) |
-| `--color-foreground` | `#fafafa` |
+| `--color-background` | `#07070a` (never pure #000) |
+| `--color-foreground` | `#f4f4f5` |
 | `--color-muted` | `#a1a1aa` |
-| `--color-surface` | `#18181b` |
-| `--color-border` | `#27272a` |
-| `--color-accent` | `#38bdf8` (sky-400) |
+| `--color-surface` | `#101015` |
+| `--color-border` | `#26262e` |
+| `--color-accent` | `#34d399` (emerald-400) |
 
-Accent rules: ONE accent for the whole page, used sparingly (eyebrow dots, icon hover, CTA glow, nav underline, selection/focus rings). Hairline borders use `rgb(255 255 255 / .06)` utilities, not `border-border`.
+Accent rules: ONE emerald accent, used sparingly (eyebrow dots, num tags, marquee dots, icon hover, CTA glow, nav underline, selection/focus). Hairline borders use `rgb(255 255 255 / .06–.08)`, not `border-border`. Shape system: pills for buttons/nav-chips, `1.25rem` radius for cards — don't mix.
 
 ## Structure
 | Path | Purpose |
 |---|---|
 | `src/pages/index.astro` | Whole landing page (all sections + scripts inline) |
-| `src/layouts/Layout.astro` | Dark layout (`<html class="dark">`, Geist fonts, theme-color meta) |
-| `src/styles/globals.css` | Tokens + all component CSS (`.reveal`, `.glow`, `.nav-*`, `.bento-*`, `.hero-e`) |
+| `src/layouts/Layout.astro` | Dark layout + fonts + `.grain` fixed film-grain overlay |
+| `src/styles/globals.css` | Tokens + ALL component CSS (`.orb*`, `.dot-grid`, `.marquee-*`, `.nav-*`, `.bento-*`, `.spot-card`, `.eyebrow`, `.hero-e`, `.reveal`) |
 
 ## Sections (index.astro)
-1. **Nav** — fixed `header#site-nav`; `#nav-sentinel` div before it feeds an IntersectionObserver that toggles `.nav-scrolled` (glass blur + h-16→h-14). Links use `.nav-link` (accent underline slide).
-2. **Hero** — left-aligned, two `.glow` radial layers (accent top-left, neutral bottom-right), staggered entrance via `.hero-e` + inline `animation-delay`.
-3. **Capability strip** — the 5 mono pills live here (NOT inside the hero), hairline top/bottom borders.
-4. **Features bento** — 12-col asymmetric grid: Edición completa `lg:col-span-7` + Mockups `lg:col-span-5` (both with `.shot-placeholder` screenshot slots to replace with real captures), then three `lg:col-span-4`, then full-width "100% gratis" band.
-5. **Download** — rounded panel (`rounded-3xl border-white/[0.06]`) with inner accent glow.
-6. **Footer** — logo, copyright, GitHub/Contacto.
+1. **Capsule nav** — floating glass pill (`max-w-3xl rounded-full`); `#nav-sentinel` feeds an IntersectionObserver toggling `.nav-scrolled` (denser bg + shadow + h shrink). Center links hidden on mobile.
+2. **Centered hero** — `.dot-grid` masked layer + `.orb-layer` with two drifting orbs (emerald top-left, neutral bottom-right); staggered entrance via `.hero-e`.
+3. **Marquee strip** — the 5 mono capability pills scroll infinitely (two duplicated `.marquee-group`s; pause on hover; edge fade mask).
+4. **Features bento** — 12-col: Edición completa `lg:col-span-7` (text+placeholder split) + Mockups `lg:col-span-5` (both with `.shot-placeholder` viewfinder slots), then three numbered cards `lg:col-span-4` (`.num-tag`, no icons), then clickable "100% gratis" banner `lg:col-span-12`.
+5. **Download** — centered, `.pulse-orb` breathing glow behind pill buttons.
+6. **Footer** — giant `.footer-mark` watermark + bottom bar (logo, ©, links).
 
-## Animation system (no libraries — vanilla CSS + IntersectionObserver)
-- **Scroll-reveal**: `.reveal` → IntersectionObserver adds `.visible`; per-element stagger via inline `style="--reveal-delay:Xms"` (transition-delay reads the var).
-- **Glows**: drift on scroll via `animation-timeline: scroll()` inside `@supports` — progressive enhancement only, static elsewhere. Never position glows with Tailwind transform utilities (the keyframes own `transform`); use inset/negative margins.
-- **Hover**: buttons lift `-translate-y-0.5` + tinted glow + arrow nudge (`group-hover:`); cards lift via `.bento-card:hover` (translateY(-3px) + black shadow + faint accent glow).
-- **Reduced motion**: `prefers-reduced-motion` disables hero/reveal/glow animations in CSS AND short-circuits the reveal observer in JS. Keep both in sync when editing.
+## Interaction & animation system (no libraries)
+- **Scroll-reveal**: `.reveal` → IO adds `.visible`; stagger via inline `style="--reveal-delay:Xms"`.
+- **Spotlight cards**: `.spot-card::before` radial gradient at `--mx/--my`; a `pointermove` listener writes those vars (only when `hover: hover` and not reduced motion).
+- **Ambient**: orbs loop via keyframes; the whole `.orb-layer` parallaxes on scroll only inside `@supports (animation-timeline: scroll())`. Never position orbs with Tailwind transform utilities (keyframes own `transform`) — use inset/negative margins.
+- **Buttons**: lift `-translate-y-0.5` + emerald-tinted glow + arrow nudge; press `active:scale-[0.97]`.
+- **Reduced motion**: CSS disables hero/reveal/orbs/marquee AND JS short-circuits reveal observer + spotlight binder. Keep both sides in sync.
+- No scroll listeners anywhere — nav + reveals are IntersectionObserver-driven by design.
 
 ## Gotchas
-- No scroll listeners anywhere — nav state and reveals are IntersectionObserver-driven by design.
-- `html { scroll-padding-top: 5.5rem }` exists because of the fixed nav; keep it when touching anchors.
+- `html { scroll-padding-top: 7rem }` exists because of the floating nav; keep it for anchors.
 - Screenshot placeholders: search for `TODO: reemplazar por captura real` in index.astro.
+- Marquee needs BOTH groups identical or the `-50%` translate loop jumps.
