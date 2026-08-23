@@ -6,8 +6,166 @@
   --color-muted: #a1a1aa;
   --color-surface: #18181b;
   --color-border: #27272a;
+  --color-accent: #38bdf8;
   --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Geist Mono", ui-monospace, monospace;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
+::selection {
+  background: rgb(56 189 248 / 0.25);
+}
+
+:focus-visible {
+  outline: 2px solid rgb(56 189 248 / 0.7);
+  outline-offset: 2px;
+}
+
+/* ---------- Hero entrance ---------- */
+
+.hero-e {
+  opacity: 0;
+  animation: heroIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes heroIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Scroll reveal ---------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms),
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Ambient glows ---------- */
+
+.glow {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+}
+
+.glow-a {
+  background: radial-gradient(closest-side, rgb(56 189 248 / 0.09), transparent 72%);
+}
+
+.glow-b {
+  background: radial-gradient(closest-side, rgb(250 250 250 / 0.05), transparent 72%);
+}
+
+/* Drift sutil con el scroll (mejora progresiva; sin soporte queda estático) */
+@supports (animation-timeline: scroll()) {
+  .glow-a {
+    animation: glowDriftA linear both;
+    animation-timeline: scroll(root);
+  }
+
+  .glow-b {
+    animation: glowDriftB linear both;
+    animation-timeline: scroll(root);
+  }
+}
+
+@keyframes glowDriftA {
+  to {
+    transform: translate3d(5rem, -6rem, 0) scale(1.12);
+  }
+}
+
+@keyframes glowDriftB {
+  to {
+    transform: translate3d(-5rem, 5rem, 0) scale(0.9);
+  }
+}
+
+/* ---------- Nav ---------- */
+
+.nav-inner {
+  height: 4rem;
+  border-bottom: 1px solid transparent;
+  transition:
+    height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.3s,
+    border-color 0.3s;
+}
+
+.nav-scrolled .nav-inner {
+  height: 3.25rem;
+  background-color: rgb(9 9 11 / 0.72);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border-bottom-color: rgb(39 39 42 / 0.55);
+}
+
+.nav-link {
+  position: relative;
+  transition: color 0.25s;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 1px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link:hover {
+  color: var(--color-foreground);
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .hero-e {
+    opacity: 1;
+    animation: none;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .glow-a,
+  .glow-b {
+    animation: none !important;
+  }
+}
