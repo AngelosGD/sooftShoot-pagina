@@ -10,56 +10,62 @@ const logo = `<svg viewBox="0 0 48 20" fill="none" xmlns="http://www.w3.org/2000
 ---
 
 <Layout>
-  <nav class="fixed top-0 inset-x-0 z-50">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6">
-      <div class="flex items-center justify-between h-16">
+  <div id="nav-sentinel" aria-hidden="true" class="h-16"></div>
+
+  <header id="site-nav" class="fixed top-0 inset-x-0 z-50">
+    <div class="nav-inner">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 flex items-center justify-between h-full">
         <a href="/" class="flex items-center gap-2 text-base font-semibold tracking-tight">
           <span class="size-7 text-foreground" set:html={logo} />
           soofShoot
         </a>
-        <div class="flex items-center gap-6 text-sm text-muted">
-          <a href="#features" class="hover:text-foreground transition-colors">Funciones</a>
-          <a href="#download" class="hover:text-foreground transition-colors">Descargar</a>
-          <a href="https://github.com/AngelosGD/soofShoot" class="hover:text-foreground transition-colors" target="_blank" rel="noopener noreferrer">GitHub</a>
-        </div>
+        <nav class="flex items-center gap-7 text-sm text-muted">
+          <a href="#features" class="nav-link">Funciones</a>
+          <a href="#download" class="nav-link">Descargar</a>
+          <a href="https://github.com/AngelosGD/soofShoot" class="nav-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </nav>
       </div>
     </div>
-  </nav>
+  </header>
 
   <main>
-    <section class="min-h-[100dvh] flex items-center relative overflow-hidden pt-16">
+    <section class="relative overflow-hidden min-h-[100dvh] flex items-center pt-28 pb-16">
       <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[700px] rounded-full bg-foreground/[0.02] blur-3xl" />
+        <div class="glow glow-a -top-48 -left-40 size-[620px]"></div>
+        <div class="glow glow-b top-[58%] -right-56 size-[700px]"></div>
       </div>
-      <div class="mx-auto max-w-6xl px-4 sm:px-6 w-full">
-        <div class="max-w-2xl">
-          <p class="hero-e text-xs uppercase tracking-[0.2em] text-muted mb-6 font-mono" style="animation-delay:0s">Screen Capture · Reimagined</p>
-          <h1 class="hero-e text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tighter leading-none mb-5" style="animation-delay:0.12s">
-            La forma más limpia de<br />capturar y presentar ideas
-          </h1>
-          <p class="hero-e text-base sm:text-lg text-muted leading-relaxed max-w-[65ch] mb-6" style="animation-delay:0.24s">
-            Seleccioná cualquier región de tu pantalla, editála al detalle con herramientas de canvas,
-            superponé mockups de dispositivos, extraé texto con OCR y exportá a PNG, PDF o directo a Word.
-            <span class="text-foreground"> Sin cuentas, sin límites, sin distracciones.</span>
-          </p>
-          <div class="hero-e flex flex-wrap gap-2 mb-8" style="animation-delay:0.36s">
-            <span class="px-3 py-1.5 rounded-lg bg-surface border border-border text-xs text-muted font-mono">Atajos personalizables</span>
-            <span class="px-3 py-1.5 rounded-lg bg-surface border border-border text-xs text-muted font-mono">Edición en canvas</span>
-            <span class="px-3 py-1.5 rounded-lg bg-surface border border-border text-xs text-muted font-mono">Mockups 3D</span>
-            <span class="px-3 py-1.5 rounded-lg bg-surface border border-border text-xs text-muted font-mono">OCR + Código</span>
-            <span class="px-3 py-1.5 rounded-lg bg-surface border border-border text-xs text-muted font-mono">Exportación multipropósito</span>
-          </div>
-          <div class="hero-e flex flex-wrap gap-4" style="animation-delay:0.48s">
-            <a href="#download" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-foreground text-background font-medium text-sm transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-[0_0_28px_-4px_rgba(255,255,255,0.12)] active:scale-[0.97]">
-              Descargar gratis
-              <svg class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"/></svg>
-            </a>
-            <a href="#features" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border text-sm font-medium transition-all duration-300 ease-out hover:scale-[1.03] hover:bg-surface active:scale-[0.97]">
-              Conocer más
-            </a>
-          </div>
+      <div class="relative mx-auto max-w-6xl px-4 sm:px-6 w-full">
+        <p class="hero-e font-mono text-xs uppercase tracking-[0.22em] text-muted mb-6" style="animation-delay:0s">
+          <span class="mr-3 inline-block size-1.5 rounded-full bg-accent align-middle shadow-[0_0_10px_rgb(56_189_248/0.8)]"></span>Screen Capture · Reimagined
+        </p>
+        <h1 class="hero-e text-4xl sm:text-6xl lg:text-7xl font-semibold tracking-[-0.035em] leading-[1.05] mb-6" style="animation-delay:0.09s">
+          La forma más limpia de<br class="hidden lg:block" />capturar y presentar ideas
+        </h1>
+        <p class="hero-e text-base sm:text-lg text-muted leading-relaxed max-w-[62ch] mb-9" style="animation-delay:0.18s">
+          Seleccioná cualquier región de tu pantalla, editála al detalle con herramientas de canvas,
+          superponé mockups de dispositivos, extraé texto con OCR y exportá a PNG, PDF o directo a Word.
+          <span class="text-foreground"> Sin cuentas, sin límites, sin distracciones.</span>
+        </p>
+        <div class="hero-e flex flex-wrap gap-4" style="animation-delay:0.27s">
+          <a href="#download" class="group inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-foreground text-background font-medium text-sm transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_8px_36px_-8px_rgb(56_189_248/0.45)] active:translate-y-0 active:scale-[0.98]">
+            Descargar gratis
+            <svg class="size-4 transition-transform duration-300 ease-out group-hover:translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"/></svg>
+          </a>
+          <a href="#features" class="inline-flex items-center px-6 py-3 rounded-xl border border-border text-sm font-medium transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.04] active:translate-y-0 active:scale-[0.98]">
+            Conocer más
+          </a>
         </div>
       </div>
+    </section>
+
+    <section aria-label="Características clave" class="relative border-y border-border/50 bg-white/[0.015]">
+      <ul class="mx-auto max-w-6xl px-4 sm:px-6 py-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
+        <li class="reveal font-mono text-xs uppercase tracking-[0.15em] text-muted before:content-[''] before:inline-block before:size-1 before:rounded-full before:bg-accent/70 before:mr-3 before:align-middle" style="--reveal-delay:0ms">Atajos personalizables</li>
+        <li class="reveal font-mono text-xs uppercase tracking-[0.15em] text-muted before:content-[''] before:inline-block before:size-1 before:rounded-full before:bg-accent/70 before:mr-3 before:align-middle" style="--reveal-delay:60ms">Edición en canvas</li>
+        <li class="reveal font-mono text-xs uppercase tracking-[0.15em] text-muted before:content-[''] before:inline-block before:size-1 before:rounded-full before:bg-accent/70 before:mr-3 before:align-middle" style="--reveal-delay:120ms">Mockups 3D</li>
+        <li class="reveal font-mono text-xs uppercase tracking-[0.15em] text-muted before:content-[''] before:inline-block before:size-1 before:rounded-full before:bg-accent/70 before:mr-3 before:align-middle" style="--reveal-delay:180ms">OCR + Código</li>
+        <li class="reveal font-mono text-xs uppercase tracking-[0.15em] text-muted before:content-[''] before:inline-block before:size-1 before:rounded-full before:bg-accent/70 before:mr-3 before:align-middle" style="--reveal-delay:240ms">Exportación multipropósito</li>
+      </ul>
     </section>
 
     <section id="features" class="py-24 sm:py-32">
@@ -151,55 +157,39 @@ const logo = `<svg viewBox="0 0 48 20" fill="none" xmlns="http://www.w3.org/2000
   </footer>
 </Layout>
 
-<style is:global>
-  html {
-    scroll-behavior: smooth;
-  }
-
-  .hero-e {
-    opacity: 0;
-    animation: heroIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-
-  @keyframes heroIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-</style>
-
 <script>
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(
-      (entries) => {
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Scroll-reveal con stagger (--reveal-delay por elemento)
+  const revealEls = document.querySelectorAll<HTMLElement>(".reveal");
+  if (prefersReduced || !("IntersectionObserver" in window)) {
+    revealEls.forEach((el) => el.classList.add("visible"));
+  } else {
+    const io = new IntersectionObserver(
+      (entries, obs) => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
             entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
+            obs.unobserve(entry.target);
           }
         }
       },
-      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.15, rootMargin: "0px 0px -8% 0px" }
     );
-    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
-  } else {
-    document.querySelectorAll(".reveal").forEach((el) => el.classList.add("visible"));
+    revealEls.forEach((el) => io.observe(el));
+  }
+
+  // Nav: glass + compacto al hacer scroll
+  const nav = document.getElementById("site-nav");
+  const sentinel = document.getElementById("nav-sentinel");
+  if (nav && sentinel && "IntersectionObserver" in window) {
+    new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          nav.classList.toggle("nav-scrolled", !entry.isIntersecting);
+        }
+      },
+      { rootMargin: "-64px 0px 0px 0px" }
+    ).observe(sentinel);
   }
 </script>
