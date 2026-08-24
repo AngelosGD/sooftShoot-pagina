@@ -384,6 +384,36 @@ html.dark .brand-mark {
 html.dark .theme-toggle .icon-sun { display: block; }
 html.dark .theme-toggle .icon-moon { display: none; }
 
+/* Language switch — minimalist segmented pill */
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border-radius: 9999px;
+  border: 1px solid var(--hairline);
+  background: var(--wash);
+}
+.lang-btn {
+  padding: 0.3rem 0.6rem;
+  border-radius: 9999px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  color: var(--color-muted);
+  cursor: pointer;
+  border: 0;
+  background: transparent;
+  transition: background-color 0.2s, color 0.2s;
+}
+.lang-btn:hover { color: var(--color-foreground); }
+.lang-btn.active {
+  background: var(--color-foreground);
+  color: var(--color-background);
+}
+
 /* ---------- Cards ---------- */
 
 .bento-card {

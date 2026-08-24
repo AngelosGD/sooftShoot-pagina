@@ -12,11 +12,15 @@ import Layout from "../layouts/Layout.astro";
         soofShoot
       </a>
       <nav class="hidden sm:flex items-center gap-1 text-sm text-muted">
-        <a href="#features" class="nav-pill">Funciones</a>
-        <a href="#download" class="nav-pill">Descargar</a>
+        <a href="#features" class="nav-pill" data-i18n="nav.features">Features</a>
+        <a href="#download" class="nav-pill" data-i18n="nav.download">Download</a>
       </nav>
       <div class="flex items-center gap-2">
-        <button id="theme-toggle" type="button" aria-label="Cambiar tema" class="theme-toggle">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" class="lang-btn" data-lang="es" aria-pressed="false">ES</button>
+        </div>
+        <button id="theme-toggle" type="button" aria-label="Toggle theme" class="theme-toggle">
           <svg class="icon-sun size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v1.5M12 20.25v1.5M4.22 4.22l1.06 1.06M18.72 18.72l1.06 1.06M3 12h1.5M20.25 12H21.75M4.22 19.78l1.06-1.06M18.72 5.28l1.06-1.06M12 8.25A3.75 3.75 0 1 1 12 15.75A3.75 3.75 0 0 1 12 8.25Z"/></svg>
           <svg class="icon-moon size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21.752 15.002A9.718 9.718 0 0 1 12 21.75 9.75 9.75 0 0 1 12 2.25c0 1.33.266 2.597.748 3.752A5.25 5.25 0 0 0 21.752 15.002Z"/></svg>
         </button>
@@ -39,41 +43,41 @@ import Layout from "../layouts/Layout.astro";
       </div>
       <div class="relative mx-auto max-w-4xl px-4 sm:px-6">
         <p class="hero-e eyebrow mb-6" style="animation-delay:0s">Screen Capture · Reimagined</p>
-        <h1 class="hero-e text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-[-0.04em] leading-[1.04] mb-6" style="animation-delay:0.1s">
-          La forma más limpia de<br class="hidden lg:block" /> capturar y presentar ideas
+        <h1 class="hero-e text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-[-0.04em] leading-[1.04] mb-6" style="animation-delay:0.1s" data-i18n="hero.title" data-i18n-html>
+          The cleanest way to<br class="hidden lg:block" /> capture and present ideas
         </h1>
-        <p class="hero-e text-base sm:text-lg text-muted leading-relaxed max-w-[58ch] mx-auto mb-10" style="animation-delay:0.2s">
-          Seleccioná cualquier región de tu pantalla, editála al detalle con herramientas de canvas,
-          superponé mockups de dispositivos, extraé texto con OCR y exportá a PNG, PDF o directo a Word.
-          <span class="text-foreground"> Sin cuentas, sin límites, sin distracciones.</span>
+        <p class="hero-e text-base sm:text-lg text-muted leading-relaxed max-w-[58ch] mx-auto mb-10" style="animation-delay:0.2s" data-i18n="hero.sub" data-i18n-html>
+          Select any region of your screen, refine it with canvas tools,
+          overlay device mockups, extract text with OCR and export to PNG, PDF or straight to Word.
+          <span class="text-foreground"> No accounts, no limits, no distractions.</span>
         </p>
         <div class="hero-e flex flex-wrap justify-center gap-3" style="animation-delay:0.3s">
           <a href="#download" class="group inline-flex items-center gap-2 px-7 py-3 rounded-full bg-foreground text-background font-medium text-sm cursor-pointer transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_10px_40px_-10px_rgb(var(--accent-rgb)/0.5)] active:translate-y-0 active:scale-[0.97]">
-            Descargar gratis
+            <span data-i18n="hero.ctaPrimary">Download free</span>
             <svg class="size-4 transition-transform duration-300 ease-out group-hover:translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"/></svg>
           </a>
-          <a href="#features" class="inline-flex items-center px-7 py-3 rounded-full border border-border text-sm font-medium transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-foreground/15 hover:bg-[var(--wash)] active:translate-y-0 active:scale-[0.97]">
-            Conocer más
+          <a href="#features" class="inline-flex items-center px-7 py-3 rounded-full border border-border text-sm font-medium transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-foreground/15 hover:bg-[var(--wash)] active:translate-y-0 active:scale-[0.97]" data-i18n="hero.ctaSecondary">
+            Learn more
           </a>
         </div>
       </div>
     </section>
 
-    <section aria-label="Características clave" class="marquee-strip relative border-y border-border py-5 overflow-hidden">
+    <section aria-label="Key features" class="marquee-strip relative border-y border-border py-5 overflow-hidden" data-i18n-aria="marquee.aria">
       <div class="marquee-track">
         <ul class="marquee-group">
-          <li class="marquee-item">Atajos personalizables</li>
-          <li class="marquee-item">Edición en canvas</li>
-          <li class="marquee-item">Mockups 3D</li>
-          <li class="marquee-item">OCR + Código</li>
-          <li class="marquee-item">Exportación multipropósito</li>
+          <li class="marquee-item" data-i18n="marquee.shortcuts">Custom shortcuts</li>
+          <li class="marquee-item" data-i18n="marquee.canvas">Canvas editing</li>
+          <li class="marquee-item" data-i18n="marquee.mockups">3D Mockups</li>
+          <li class="marquee-item" data-i18n="marquee.ocr">OCR + Code</li>
+          <li class="marquee-item" data-i18n="marquee.export">Versatile export</li>
         </ul>
         <ul class="marquee-group" aria-hidden="true">
-          <li class="marquee-item">Atajos personalizables</li>
-          <li class="marquee-item">Edición en canvas</li>
-          <li class="marquee-item">Mockups 3D</li>
-          <li class="marquee-item">OCR + Código</li>
-          <li class="marquee-item">Exportación multipropósito</li>
+          <li class="marquee-item">Custom shortcuts</li>
+          <li class="marquee-item">Canvas editing</li>
+          <li class="marquee-item">3D Mockups</li>
+          <li class="marquee-item">OCR + Code</li>
+          <li class="marquee-item">Versatile export</li>
         </ul>
       </div>
     </section>
@@ -81,8 +85,8 @@ import Layout from "../layouts/Layout.astro";
     <section id="features" class="relative py-28 sm:py-36">
       <div class="mx-auto max-w-6xl px-4 sm:px-6">
         <div class="reveal max-w-2xl mx-auto text-center mb-14 sm:mb-20" style="--reveal-delay:0ms">
-          <p class="eyebrow mb-5 inline-block">Funcionalidades</p>
-          <h2 class="text-3xl sm:text-5xl font-semibold tracking-[-0.03em] leading-[1.08]">Todo lo que necesitas para capturas impecables</h2>
+          <p class="eyebrow mb-5 inline-block" data-i18n="features.eyebrow">Features</p>
+          <h2 class="text-3xl sm:text-5xl font-semibold tracking-[-0.03em] leading-[1.08]" data-i18n="features.title">Everything you need for flawless captures</h2>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4">
@@ -92,16 +96,16 @@ import Layout from "../layouts/Layout.astro";
               <div class="bento-icon mb-5">
                 <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"/></svg>
               </div>
-              <h3 class="font-semibold text-lg mb-2">Edición completa</h3>
-              <p class="text-sm text-muted leading-relaxed">Fondo, padding, filtros, bordes, sombras, esquinas redondeadas, rotación 3D y recorte preciso.</p>
+              <h3 class="font-semibold text-lg mb-2" data-i18n="card.edit.title">Complete editing</h3>
+              <p class="text-sm text-muted leading-relaxed" data-i18n="card.edit.desc">Background, padding, filters, borders, shadows, rounded corners, 3D rotation and precise cropping.</p>
             </div>
-            <figure class="shot-placeholder min-h-[200px] sm:min-h-[260px]" role="img" aria-label="Vista previa del editor de canvas de soofShoot (captura pendiente)">
+            <figure class="shot-placeholder min-h-[200px] sm:min-h-[260px]" role="img" aria-label="soofShoot canvas editor preview">
               <span class="absolute left-3 top-3 size-3.5 rounded-[3px] border-l-2 border-t-2 border-accent/50"></span>
               <span class="absolute right-3 top-3 size-3.5 rounded-[3px] border-r-2 border-t-2 border-accent/50"></span>
               <span class="absolute bottom-3 left-3 size-3.5 rounded-[3px] border-b-2 border-l-2 border-accent/50"></span>
               <span class="absolute bottom-3 right-3 size-3.5 rounded-[3px] border-b-2 border-r-2 border-accent/50"></span>
               <figcaption class="absolute inset-0 flex items-center justify-center px-4 text-center">
-                <span class="font-mono text-xs tracking-wide text-muted/70 select-none">[ screenshot de la app aquí ]</span>
+                <span class="font-mono text-xs tracking-wide text-muted/70 select-none" data-i18n="placeholder">[ app screenshot here ]</span>
               </figcaption>
             </figure>
           </article>
@@ -113,37 +117,37 @@ import Layout from "../layouts/Layout.astro";
                 <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m9.53 16.122-3.475 3.475m0 0a1.5 1.5 0 0 1-2.12-2.12l3.475-3.475m2.12 2.12a3.375 3.375 0 0 0 3.708-4.092m0 0a3.375 3.375 0 0 0-4.092-3.708m0 0a3.375 3.375 0 0 0-3.708 4.092m0 0a3.375 3.375 0 0 0 4.092 3.708m3.708-4.092 3.475-3.475m0 0a1.5 1.5 0 0 1 2.12 2.12l-3.475 3.475"/></svg>
               </div>
               <div>
-                <h3 class="font-semibold text-lg mb-1">Mockups profesionales</h3>
-                <p class="text-sm text-muted leading-relaxed">Superponé tus capturas en iPhone, iPad o Mac. Ideal para presentaciones y portfolios.</p>
+                <h3 class="font-semibold text-lg mb-1" data-i18n="card.mockup.title">Pro mockups</h3>
+                <p class="text-sm text-muted leading-relaxed" data-i18n="card.mockup.desc">Overlay your captures on iPhone, iPad or Mac. Perfect for presentations and portfolios.</p>
               </div>
             </div>
-            <figure class="shot-placeholder mt-auto aspect-[16/10]" role="img" aria-label="Vista previa de mockups de dispositivos de soofShoot (captura pendiente)">
+            <figure class="shot-placeholder mt-auto aspect-[16/10]" role="img" aria-label="soofShoot device mockups preview">
               <span class="absolute left-3 top-3 size-3.5 rounded-[3px] border-l-2 border-t-2 border-accent/50"></span>
               <span class="absolute right-3 top-3 size-3.5 rounded-[3px] border-r-2 border-t-2 border-accent/50"></span>
               <span class="absolute bottom-3 left-3 size-3.5 rounded-[3px] border-b-2 border-l-2 border-accent/50"></span>
               <span class="absolute bottom-3 right-3 size-3.5 rounded-[3px] border-b-2 border-r-2 border-accent/50"></span>
               <figcaption class="absolute inset-0 flex items-center justify-center px-4 text-center">
-                <span class="font-mono text-xs tracking-wide text-muted/70 select-none">[ screenshot de la app aquí ]</span>
+                <span class="font-mono text-xs tracking-wide text-muted/70 select-none" data-i18n="placeholder">[ app screenshot here ]</span>
               </figcaption>
             </figure>
           </article>
 
           <article class="reveal spot-card bento-card group p-7 lg:col-span-4" style="--reveal-delay:180ms">
             <span class="num-tag">01</span>
-            <h3 class="font-semibold text-lg mt-4 mb-2">Captura inteligente</h3>
-            <p class="text-sm text-muted leading-relaxed">Seleccioná cualquier región con atajos de teclado personalizables. Capturá al instante sin interrupciones.</p>
+            <h3 class="font-semibold text-lg mt-4 mb-2" data-i18n="card.capture.title">Smart capture</h3>
+            <p class="text-sm text-muted leading-relaxed" data-i18n="card.capture.desc">Select any region with customizable shortcuts. Capture instantly, no interruptions.</p>
           </article>
 
           <article class="reveal spot-card bento-card group p-7 lg:col-span-4" style="--reveal-delay:240ms">
             <span class="num-tag">02</span>
-            <h3 class="font-semibold text-lg mt-4 mb-2">OCR + Código</h3>
-            <p class="text-sm text-muted leading-relaxed">Extraé texto con Tesseract.js. Detecta y formatea código automáticamente y copialo al instante.</p>
+            <h3 class="font-semibold text-lg mt-4 mb-2" data-i18n="card.ocr.title">OCR + Code</h3>
+            <p class="text-sm text-muted leading-relaxed" data-i18n="card.ocr.desc">Extract text with Tesseract.js. Auto-detects and formats code to copy instantly.</p>
           </article>
 
           <article class="reveal spot-card bento-card group p-7 lg:col-span-4" style="--reveal-delay:300ms">
             <span class="num-tag">03</span>
-            <h3 class="font-semibold text-lg mt-4 mb-2">Exportación versátil</h3>
-            <p class="text-sm text-muted leading-relaxed">PNG, JPEG o WebP. Exportá PDF por lote, copiá al portapapeles o insertá directo en Word.</p>
+            <h3 class="font-semibold text-lg mt-4 mb-2" data-i18n="card.export.title">Versatile export</h3>
+            <p class="text-sm text-muted leading-relaxed" data-i18n="card.export.desc">PNG, JPEG or WebP. Batch-export to PDF, copy to clipboard or insert straight into Word.</p>
           </article>
 
           <a href="#download" class="reveal spot-card bento-card group p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-7 sm:col-span-2 lg:col-span-12 cursor-pointer" style="--reveal-delay:360ms">
@@ -151,11 +155,11 @@ import Layout from "../layouts/Layout.astro";
               <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m9 14.25 6-6m4.5-3.493V21.75l-3.75-1.5-3.75 1.5-3.75-1.5-3.75 1.5V4.5c0-.75.188-1.457.518-2.07m5.732 0A2.25 2.25 0 0 1 16.5 3.75"/></svg>
             </div>
             <div class="flex-1 sm:max-w-[62ch]">
-              <h3 class="font-semibold text-lg mb-1">100% gratis</h3>
-              <p class="text-sm text-muted leading-relaxed">Sin cuentas, sin suscripciones, sin límites ocultos. Descargá y empezá a usar al instante.</p>
+              <h3 class="font-semibold text-lg mb-1" data-i18n="card.free.title">100% free</h3>
+              <p class="text-sm text-muted leading-relaxed" data-i18n="card.free.desc">No accounts, no subscriptions, no hidden limits. Download and start instantly.</p>
             </div>
             <span class="inline-flex items-center gap-2 font-mono text-sm text-accent shrink-0">
-              Descargar gratis
+              <span data-i18n="card.free.cta">Download free</span>
               <svg class="size-4 transition-transform duration-300 ease-out group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
             </span>
           </a>
@@ -166,17 +170,17 @@ import Layout from "../layouts/Layout.astro";
     <section id="download" class="relative py-28 sm:py-40 overflow-hidden">
       <div class="pulse-orb top-1/2 left-1/2 -ml-[340px] -mt-[340px] size-[680px]" aria-hidden="true"></div>
       <div class="reveal relative mx-auto max-w-3xl px-4 sm:px-6 text-center" style="--reveal-delay:0ms">
-        <p class="eyebrow mb-5 inline-block">Consíguelo ahora</p>
-        <h2 class="text-4xl sm:text-6xl font-semibold tracking-[-0.04em] leading-[1.05] mb-5">Descargá soofShoot</h2>
-        <p class="text-muted max-w-md mx-auto mb-10 leading-relaxed">Disponible para Windows. Próximamente en macOS.</p>
+        <p class="eyebrow mb-5 inline-block" data-i18n="download.eyebrow">Get it now</p>
+        <h2 class="text-4xl sm:text-6xl font-semibold tracking-[-0.04em] leading-[1.05] mb-5" data-i18n="download.title">Download soofShoot</h2>
+        <p class="text-muted max-w-md mx-auto mb-10 leading-relaxed" data-i18n="download.sub">Available for Windows. Coming soon on macOS.</p>
         <div class="flex flex-wrap justify-center gap-4">
           <a class="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-foreground text-background font-medium cursor-pointer transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_12px_48px_-12px_rgb(var(--accent-rgb)/0.55)] active:translate-y-0 active:scale-[0.97]">
             <svg class="size-5 transition-transform duration-300 ease-out group-hover:-translate-y-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M3.5 2.75a.75.75 0 0 1 .75-.75h12.5a.75.75 0 0 1 .53.22l4 4a.75.75 0 0 1 .22.53v13.5a.75.75 0 0 1-.75.75H4.25a.75.75 0 0 1-.75-.75V2.75Zm2.25.75v17h12.5V7.56L14.44 3.5H5.75Z"/><path d="M10.5 12.44V8.25a.75.75 0 0 1 1.5 0v4.19l1.72-1.72a.75.75 0 1 1 1.06 1.06l-3 3a.75.75 0 0 1-1.06 0l-3-3a.75.75 0 1 1 1.06-1.06l1.72 1.72Z"/></svg>
-            Descargar para Windows
+            <span data-i18n="download.btnWin">Download for Windows</span>
           </a>
           <a class="inline-flex items-center gap-3 px-8 py-4 rounded-full border border-border text-muted font-medium cursor-not-allowed opacity-60">
             <svg class="size-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.5-.6 1.02-1.09 1.69-1.48.66-.39 1.3-.52 1.87-.52.04.65-.17 1.29-.62 1.83-.46.55-1.06 1.02-1.72 1.34-.66.32-1.3.47-1.87.45-.04-.63.14-1.26.65-1.82Z"/></svg>
-            Próximamente en macOS
+            <span data-i18n="download.btnMac">Coming soon on macOS</span>
           </a>
         </div>
       </div>
@@ -192,10 +196,10 @@ import Layout from "../layouts/Layout.astro";
             <img src="/logosintexto.png" alt="soofShoot" width="24" height="24" class="brand-mark size-6 object-contain" loading="lazy" />
             <span>soofShoot</span>
           </div>
-          <p>&copy; {new Date().getFullYear()} soofShoot. Hecho con dedicación.</p>
+          <p data-i18n="footer.copy" data-i18n-html>&copy; <span data-year></span> soofShoot. Made with dedication.</p>
           <div class="flex items-center gap-7">
             <a href="https://github.com/AngelosGD/soofShoot" class="nav-link" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="mailto:hello@soofshoot.app" class="nav-link">Contacto</a>
+            <a href="mailto:hello@soofshoot.app" class="nav-link" data-i18n="footer.contact">Contact</a>
           </div>
         </div>
       </div>
@@ -206,17 +210,154 @@ import Layout from "../layouts/Layout.astro";
 <script>
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  // -------- i18n --------
+  const i18n = {
+    en: {
+      "nav.features": "Features",
+      "nav.download": "Download",
+      "hero.title": "The cleanest way to<br class=\"hidden lg:block\" /> capture and present ideas",
+      "hero.sub": "Select any region of your screen, refine it with canvas tools,\n          overlay device mockups, extract text with OCR and export to PNG, PDF or straight to Word.\n          <span class=\"text-foreground\"> No accounts, no limits, no distractions.</span>",
+      "hero.ctaPrimary": "Download free",
+      "hero.ctaSecondary": "Learn more",
+      "marquee.shortcuts": "Custom shortcuts",
+      "marquee.canvas": "Canvas editing",
+      "marquee.mockups": "3D Mockups",
+      "marquee.ocr": "OCR + Code",
+      "marquee.export": "Versatile export",
+      "features.eyebrow": "Features",
+      "features.title": "Everything you need for flawless captures",
+      "card.edit.title": "Complete editing",
+      "card.edit.desc": "Background, padding, filters, borders, shadows, rounded corners, 3D rotation and precise cropping.",
+      "card.mockup.title": "Pro mockups",
+      "card.mockup.desc": "Overlay your captures on iPhone, iPad or Mac. Perfect for presentations and portfolios.",
+      "card.capture.title": "Smart capture",
+      "card.capture.desc": "Select any region with customizable shortcuts. Capture instantly, no interruptions.",
+      "card.ocr.title": "OCR + Code",
+      "card.ocr.desc": "Extract text with Tesseract.js. Auto-detects and formats code to copy instantly.",
+      "card.export.title": "Versatile export",
+      "card.export.desc": "PNG, JPEG or WebP. Batch-export to PDF, copy to clipboard or insert straight into Word.",
+      "card.free.title": "100% free",
+      "card.free.desc": "No accounts, no subscriptions, no hidden limits. Download and start instantly.",
+      "card.free.cta": "Download free",
+      "download.eyebrow": "Get it now",
+      "download.title": "Download soofShoot",
+      "download.sub": "Available for Windows. Coming soon on macOS.",
+      "download.btnWin": "Download for Windows",
+      "download.btnMac": "Coming soon on macOS",
+      "footer.copy": "© <span data-year></span> soofShoot. Made with dedication.",
+      "footer.contact": "Contact",
+      "placeholder": "[ app screenshot here ]",
+      "meta.title": "soofShoot — Capture, edit and elevate your screenshots",
+      "meta.desc": "Capture, edit and elevate your screenshots with soofShoot. Canvas editing, mockups, OCR and more. No accounts, no limits.",
+      "aria.theme": "Toggle theme",
+      "aria.lang": "Language",
+    },
+    es: {
+      "nav.features": "Funciones",
+      "nav.download": "Descargar",
+      "hero.title": "La forma más limpia de<br class=\"hidden lg:block\" /> capturar y presentar ideas",
+      "hero.sub": "Seleccioná cualquier región de tu pantalla, editála al detalle con herramientas de canvas,\n          superponé mockups de dispositivos, extraé texto con OCR y exportá a PNG, PDF o directo a Word.\n          <span class=\"text-foreground\"> Sin cuentas, sin límites, sin distracciones.</span>",
+      "hero.ctaPrimary": "Descargar gratis",
+      "hero.ctaSecondary": "Conocer más",
+      "marquee.shortcuts": "Atajos personalizables",
+      "marquee.canvas": "Edición en canvas",
+      "marquee.mockups": "Mockups 3D",
+      "marquee.ocr": "OCR + Código",
+      "marquee.export": "Exportación multipropósito",
+      "features.eyebrow": "Funcionalidades",
+      "features.title": "Todo lo que necesitas para capturas impecables",
+      "card.edit.title": "Edición completa",
+      "card.edit.desc": "Fondo, padding, filtros, bordes, sombras, esquinas redondeadas, rotación 3D y recorte preciso.",
+      "card.mockup.title": "Mockups profesionales",
+      "card.mockup.desc": "Superponé tus capturas en iPhone, iPad o Mac. Ideal para presentaciones y portfolios.",
+      "card.capture.title": "Captura inteligente",
+      "card.capture.desc": "Seleccioná cualquier región con atajos de teclado personalizables. Capturá al instante sin interrupciones.",
+      "card.ocr.title": "OCR + Código",
+      "card.ocr.desc": "Extraé texto con Tesseract.js. Detecta y formatea código automáticamente y copialo al instante.",
+      "card.export.title": "Exportación versátil",
+      "card.export.desc": "PNG, JPEG o WebP. Exportá PDF por lote, copiá al portapapeles o insertá directo en Word.",
+      "card.free.title": "100% gratis",
+      "card.free.desc": "Sin cuentas, sin suscripciones, sin límites ocultos. Descargá y empezá a usar al instante.",
+      "card.free.cta": "Descargar gratis",
+      "download.eyebrow": "Consíguelo ahora",
+      "download.title": "Descargá soofShoot",
+      "download.sub": "Disponible para Windows. Próximamente en macOS.",
+      "download.btnWin": "Descargar para Windows",
+      "download.btnMac": "Próximamente en macOS",
+      "footer.copy": "© <span data-year></span> soofShoot. Hecho con dedicación.",
+      "footer.contact": "Contacto",
+      "placeholder": "[ screenshot de la app aquí ]",
+      "meta.title": "soofShoot — Captura, edita y lleva tus capturas a otro nivel",
+      "meta.desc": "Captura, edita y lleva tus capturas a otro nivel con soofShoot. Edición, mockups, OCR y más. Sin cuentas, sin límites.",
+      "aria.theme": "Cambiar tema",
+      "aria.lang": "Idioma",
+    }
+  };
+
+  function applyLang(lang) {
+    var dict = i18n[lang] || i18n.en;
+    document.documentElement.lang = lang;
+    try { localStorage.setItem("lang", lang); } catch {}
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      var key = el.getAttribute("data-i18n");
+      var val = dict[key];
+      if (val == null) return;
+      if (el.hasAttribute("data-i18n-html")) el.innerHTML = val;
+      else el.textContent = val;
+    });
+    // Update year placeholder inside footer copy
+    var year = String(new Date().getFullYear());
+    document.querySelectorAll("[data-year]").forEach(function(e){ e.textContent = year; });
+    // aria for theme toggle
+    var themeBtn = document.getElementById("theme-toggle");
+    if (themeBtn) themeBtn.setAttribute("aria-label", dict["aria.theme"] || "Toggle theme");
+    var langGroup = document.querySelector(".lang-switch");
+    if (langGroup) langGroup.setAttribute("aria-label", dict["aria.lang"] || "Language");
+    // Meta
+    if (dict["meta.title"]) document.title = dict["meta.title"];
+    var metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc && dict["meta.desc"]) metaDesc.setAttribute("content", dict["meta.desc"]);
+    // Secondary marquee group (aria-hidden) — keep in sync
+    var marqueeKeys = ["marquee.shortcuts","marquee.canvas","marquee.mockups","marquee.ocr","marquee.export"];
+    var hiddenGroup = document.querySelector('.marquee-group[aria-hidden="true"]');
+    if (hiddenGroup) {
+      hiddenGroup.querySelectorAll(".marquee-item").forEach(function(el, i){
+        var k = marqueeKeys[i];
+        if (dict[k]) el.textContent = dict[k];
+      });
+    }
+    // Active state
+    document.querySelectorAll("[data-lang]").forEach(function(btn){
+      var isActive = btn.getAttribute("data-lang") === lang;
+      btn.classList.toggle("active", isActive);
+      btn.setAttribute("aria-pressed", String(isActive));
+    });
+  }
+
+  // Init lang (default en for Product Hunt)
+  var initialLang = (function(){
+    try {
+      var s = localStorage.getItem("lang");
+      if (s === "en" || s === "es") return s;
+    } catch {}
+    return "en";
+  })();
+  // Ensure year is set before first apply
+  document.querySelectorAll("[data-year]").forEach(function(e){ e.textContent = String(new Date().getFullYear()); });
+  applyLang(initialLang);
+  document.querySelectorAll("[data-lang]").forEach(function(btn){
+    btn.addEventListener("click", function(){ applyLang(btn.getAttribute("data-lang")); });
+  });
+
   // Tema: toggle claro/oscuro
   const themeToggle = document.getElementById("theme-toggle");
   const themeColor = document.querySelector('meta[name="theme-color"]');
   function applyTheme(theme) {
     document.documentElement.classList.toggle("dark", theme === "dark");
-    try {
-      localStorage.setItem("theme", theme);
-    } catch {}
+    try { localStorage.setItem("theme", theme); } catch {}
     if (themeColor) themeColor.setAttribute("content", theme === "dark" ? "#07070a" : "#fdfdfc");
   }
-  themeToggle?.addEventListener("click", () => {
+  themeToggle?.addEventListener("click", function() {
     var isDark = document.documentElement.classList.contains("dark");
     applyTheme(isDark ? "light" : "dark");
   });

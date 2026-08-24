@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#fdfdfc" id="theme-color" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>soofShoot — Captura, edita y lleva tus capturas a otro nivel</title>
-    <meta name="description" content="Captura, edita y lleva tus capturas a otro nivel con soofShoot. Edición, mockups, OCR y más." />
+    <title>soofShoot — Capture, edit and elevate your screenshots</title>
+    <meta name="description" content="Capture, edit and elevate your screenshots with soofShoot. Canvas editing, mockups, OCR and more. No accounts, no limits." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -15,13 +15,16 @@
     <script is:inline>
       (function () {
         try {
-          var stored = localStorage.getItem("theme");
+          var storedTheme = localStorage.getItem("theme");
           var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-          var theme = stored ? stored : prefersDark ? "dark" : "light";
+          var theme = storedTheme ? storedTheme : prefersDark ? "dark" : "light";
           if (theme === "dark") document.documentElement.classList.add("dark");
           document
             .querySelector('meta[name="theme-color"]')
             ?.setAttribute("content", theme === "dark" ? "#07070a" : "#fdfdfc");
+          var storedLang = localStorage.getItem("lang");
+          var lang = storedLang ? storedLang : "en";
+          document.documentElement.lang = lang;
         } catch (e) {}
       })();
     </script>
