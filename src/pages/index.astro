@@ -41,6 +41,11 @@ import Layout from "../layouts/Layout.astro";
           <div class="orb orb-c"></div>
         </div>
         <div class="dot-grid"></div>
+        <div class="hero-lines" aria-hidden="true"></div>
+        <div class="hero-curves" aria-hidden="true">
+          <div class="hero-curve hero-curve--a"></div>
+          <div class="hero-curve hero-curve--b"></div>
+        </div>
         <div class="hero-rings" aria-hidden="true">
           <div class="hero-ring hero-ring--1"></div>
           <div class="hero-ring hero-ring--2"></div>
@@ -91,6 +96,8 @@ import Layout from "../layouts/Layout.astro";
     <section id="features" class="relative py-28 sm:py-36 overflow-hidden">
       <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div class="features-glow"></div>
+        <div class="features-glow--side features-glow--left"></div>
+        <div class="features-glow--side features-glow--right"></div>
         <div class="features-grid"></div>
       </div>
       <div class="relative mx-auto max-w-6xl px-4 sm:px-6">
@@ -100,7 +107,7 @@ import Layout from "../layouts/Layout.astro";
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 lg:gap-5">
-          <article class="reveal spot-card bento-card group p-7 sm:p-8 grid lg:grid-cols-[1.05fr_0.95fr] gap-7 sm:col-span-2 lg:col-span-8" style="--reveal-delay:60ms">
+          <article class="reveal spot-card bento-card group p-6 sm:p-7 grid lg:grid-cols-[0.78fr_1.22fr] gap-5 sm:col-span-2 lg:col-span-8" style="--reveal-delay:60ms">
             <div class="flex flex-col items-start justify-center">
               <div class="bento-icon bento-icon-accent mb-5">
                 <svg class="size-[18px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"/></svg>
@@ -108,8 +115,8 @@ import Layout from "../layouts/Layout.astro";
               <h3 class="font-semibold text-[1.15rem] leading-tight mb-2.5" data-i18n="card.edit.title">Complete editing</h3>
               <p class="text-[13.5px] text-muted leading-relaxed max-w-[32ch]" data-i18n="card.edit.desc">Background, padding, filters, borders, shadows, rounded corners, 3D rotation and precise cropping.</p>
             </div>
-            <figure class="shot-media">
-              <img src="/complete-editing.png" alt="soofShoot canvas editor — background, padding, 3D and filters" width="1952" height="1112" loading="lazy" decoding="async" />
+            <figure class="shot-media aspect-[16/9] flex items-center justify-center bg-[var(--surface)] overflow-hidden">
+              <img src="/complete-editing.png" alt="soofShoot canvas editor — background, padding, 3D and filters" width="1952" height="1112" loading="lazy" decoding="async" class="w-full h-full object-contain p-1.5" />
             </figure>
           </article>
 
@@ -160,6 +167,14 @@ import Layout from "../layouts/Layout.astro";
     </section>
 
     <section id="download" class="relative py-28 sm:py-40 overflow-hidden">
+      <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="download-grid"></div>
+        <div class="download-glow"></div>
+        <div class="download-curves" aria-hidden="true">
+          <div class="download-curve download-curve--a"></div>
+          <div class="download-curve download-curve--b"></div>
+        </div>
+      </div>
       <div class="pulse-orb top-1/2 left-1/2 -ml-[340px] -mt-[340px] size-[680px]" aria-hidden="true"></div>
       <div class="reveal relative mx-auto max-w-3xl px-4 sm:px-6 text-center" style="--reveal-delay:0ms">
         <p class="eyebrow mb-5 inline-block" data-i18n="download.eyebrow">Get it now</p>
