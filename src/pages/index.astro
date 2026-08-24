@@ -38,8 +38,14 @@ import Layout from "../layouts/Layout.astro";
         <div class="orb-layer">
           <div class="orb orb-a"></div>
           <div class="orb orb-b"></div>
+          <div class="orb orb-c"></div>
         </div>
         <div class="dot-grid"></div>
+        <div class="hero-rings" aria-hidden="true">
+          <div class="hero-ring hero-ring--1"></div>
+          <div class="hero-ring hero-ring--2"></div>
+        </div>
+        <div class="hero-scan" aria-hidden="true"></div>
       </div>
       <div class="relative mx-auto max-w-4xl px-4 sm:px-6">
         <p class="hero-e eyebrow mb-6" style="animation-delay:0s">Screen Capture · Reimagined</p>
@@ -82,8 +88,12 @@ import Layout from "../layouts/Layout.astro";
       </div>
     </section>
 
-    <section id="features" class="relative py-28 sm:py-36">
-      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <section id="features" class="relative py-28 sm:py-36 overflow-hidden">
+      <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="features-glow"></div>
+        <div class="features-grid"></div>
+      </div>
+      <div class="relative mx-auto max-w-6xl px-4 sm:px-6">
         <div class="reveal max-w-2xl mx-auto text-center mb-14 sm:mb-20" style="--reveal-delay:0ms">
           <p class="eyebrow mb-5 inline-block" data-i18n="features.eyebrow">Features</p>
           <h2 class="text-3xl sm:text-5xl font-semibold tracking-[-0.03em] leading-[1.08]" data-i18n="features.title">Everything you need for flawless captures</h2>
