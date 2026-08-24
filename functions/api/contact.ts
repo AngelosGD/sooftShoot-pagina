@@ -1,5 +1,3 @@
-export const prerender = false;
-
 import { Resend } from "resend";
 
 type Body = {
@@ -13,26 +11,22 @@ function isEmail(v: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 }
 
-export async function POST({ request }: { request: Request }) {
-  // Read at runtime so Vercel env vars work (import.meta.env is build-time only)
-  const apiKey =
-    (process.env.RESEND_API_KEY as string | undefined) ||
-    ((import.meta as any).env?.RESEND_API_KEY as string | undefined);
-  const to =
-    (process.env.CONTACT_TO as string | undefined) ||
-    ((import.meta as any).env?.CONTACT_TO as string | undefined);
+function escapeHtml(s: string) {
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
+export async function onRequestPost(context: { request: Request; env: Record<string, string> }) {
+  const { request, env } = context;
+  const apiKey = env.RESEND_API_KEY;
+  const to = env.CONTACT_TO;
 
   if (!apiKey || !to) {
     return new Response(
       JSON.stringify({
         ok: false,
-        error:
-          "Email service not configured. Set RESEND_API_KEY and CONTACT_TO in your .env (local) or Vercel Project → Settings → Environment Variables and redeploy.",
+        error: "Email service not configured. Set RESEND_API_KEY and CONTACT_TO in Cloudflare Pages → Settings → Variables and redeploy.",
       }),
-      {
-        status: 500,
-        headers: { "content-type": "application/json" },
-      }
+      { status: 500, headers: { "content-type": "application/json" } }
     );
   }
 
@@ -70,9 +64,6 @@ export async function POST({ request }: { request: Request }) {
   }
 
   const resend = new Resend(apiKey);
-
-  // Use onboarding@resend.dev until soofshoot.app domain is verified in Resend.
-  // replyTo lets you answer directly to the sender.
   try {
     const { error } = await resend.emails.send({
       from: "soofShoot Contact <onboarding@resend.dev>",
@@ -80,22 +71,14 @@ export async function POST({ request }: { request: Request }) {
       replyTo: email,
       subject: `[soofShoot] New message from ${name}`,
       text: `Name: ${name}\nEmail: ${email}\nLang: ${body.lang || "en"}\n\n${message}`,
-      html: `<div style="font-family: ui-sans-serif, system-ui, -apple-system; line-height:1.6; color:#0a0a0f">
-        <h2 style="margin:0 0 12px; font-size:18px">New soofShoot contact</h2>
-        <p style="margin:0 0 6px"><strong>Name:</strong> ${escapeHtml(name)}</p>
-        <p style="margin:0 0 6px"><strong>Email:</strong> ${escapeHtml(email)}</p>
-        <p style="margin:0 0 16px"><strong>Lang:</strong> ${escapeHtml(body.lang || "en")}</p>
-        <div style="white-space:pre-wrap; background:#f4f4f5; border:1px solid #e4e4e7; border-radius:10px; padding:14px; font-size:14px">${escapeHtml(message)}</div>
-      </div>`,
+      html: `<div style="font-family: ui-sans-serif, system-ui, -apple-system; line-height:1.6; color:#0a0a0f"><h2 style="margin:0 0 12px; font-size:18px">New soofShoot contact</h2><p style="margin:0 0 6px"><strong>Name:</strong> ${escapeHtml(name)}</p><p style="margin:0 0 6px"><strong>Email:</strong> ${escapeHtml(email)}</p><p style="margin:0 0 16px"><strong>Lang:</strong> ${escapeHtml(body.lang || "en")}</p><div style="white-space:pre-wrap; background:#f4f4f5; border:1px solid #e4e4e7; border-radius:10px; padding:14px; font-size:14px">${escapeHtml(message)}</div></div>`,
     });
-
     if (error) {
       return new Response(JSON.stringify({ ok: false, error: error.message || "Failed to send." }), {
         status: 502,
         headers: { "content-type": "application/json" },
       });
     }
-
     return new Response(JSON.stringify({ ok: true }), {
       status: 200,
       headers: { "content-type": "application/json" },
@@ -107,8 +90,4 @@ export async function POST({ request }: { request: Request }) {
       headers: { "content-type": "application/json" },
     });
   }
-}
-
-function escapeHtml(s: string) {
-  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
