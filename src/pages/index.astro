@@ -108,8 +108,8 @@ import Layout from "../layouts/Layout.astro";
               <h3 class="font-semibold text-[1.15rem] leading-tight mb-2.5" data-i18n="card.edit.title">Complete editing</h3>
               <p class="text-[13.5px] text-muted leading-relaxed max-w-[32ch]" data-i18n="card.edit.desc">Background, padding, filters, borders, shadows, rounded corners, 3D rotation and precise cropping.</p>
             </div>
-            <figure class="shot-media min-h-[210px] lg:min-h-[280px]">
-              <img src="/complete-editing.png" alt="soofShoot canvas editor — background, padding, 3D and filters" width="1952" height="1112" loading="lazy" decoding="async" class="w-full h-full object-cover object-top" />
+            <figure class="shot-media">
+              <img src="/complete-editing.png" alt="soofShoot canvas editor — background, padding, 3D and filters" width="1952" height="1112" loading="lazy" decoding="async" />
             </figure>
           </article>
 
@@ -119,8 +119,8 @@ import Layout from "../layouts/Layout.astro";
             </div>
             <h3 class="font-semibold text-[1.05rem] leading-tight mb-2" data-i18n="card.mockup.title">Pro mockups</h3>
             <p class="text-[13px] text-muted leading-relaxed mb-6" data-i18n="card.mockup.desc">Overlay your captures on iPhone, iPad or Mac. Perfect for presentations and portfolios.</p>
-            <figure class="shot-media mt-auto aspect-[4/3] lg:aspect-[4/3.4] overflow-hidden">
-              <img src="/pro-mockups.png" alt="soofShoot mockup — iPhone 15 Pro preview" width="1952" height="1112" loading="lazy" decoding="async" class="w-full h-full object-cover object-top" />
+            <figure class="shot-media mt-auto">
+              <img src="/pro-mockups.png" alt="soofShoot mockup — iPhone 15 Pro preview" width="1952" height="1112" loading="lazy" decoding="async" />
             </figure>
           </article>
 
@@ -197,6 +197,14 @@ import Layout from "../layouts/Layout.astro";
       </div>
     </div>
   </footer>
+
+  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image preview">
+    <div class="lightbox-backdrop" data-close></div>
+    <img class="lightbox-img" src="" alt="" />
+    <button type="button" class="lightbox-close" aria-label="Close" data-close>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
 </Layout>
 
 <script>
@@ -397,4 +405,34 @@ import Layout from "../layouts/Layout.astro";
       });
     });
   }
+
+  // Lightbox — click en screenshot para expandir
+  const lightbox = document.getElementById("lightbox") as HTMLElement | null;
+  const lightboxImg = lightbox?.querySelector(".lightbox-img") as HTMLImageElement | null;
+  function openLightbox(src: string, alt: string) {
+    if (!lightbox || !lightboxImg) return;
+    lightboxImg.src = src;
+    lightboxImg.alt = alt;
+    lightbox.classList.add("open");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+  function closeLightbox() {
+    if (!lightbox) return;
+    lightbox.classList.remove("open");
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+  document.querySelectorAll(".shot-media").forEach(function (fig) {
+    fig.addEventListener("click", function () {
+      var img = fig.querySelector("img") as HTMLImageElement | null;
+      if (img) openLightbox(img.currentSrc || img.src, img.alt);
+    });
+  });
+  lightbox?.querySelectorAll("[data-close]").forEach(function (el) {
+    el.addEventListener("click", closeLightbox);
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && lightbox?.classList.contains("open")) closeLightbox();
+  });
 </script>
