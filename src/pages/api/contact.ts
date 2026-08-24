@@ -14,14 +14,26 @@ function isEmail(v: string) {
 }
 
 export async function POST({ request }: { request: Request }) {
-  const apiKey = import.meta.env.RESEND_API_KEY;
-  const to = import.meta.env.CONTACT_TO;
+  // Read at runtime so Vercel env vars work (import.meta.env is build-time only)
+  const apiKey =
+    (process.env.RESEND_API_KEY as string | undefined) ||
+    ((import.meta as any).env?.RESEND_API_KEY as string | undefined);
+  const to =
+    (process.env.CONTACT_TO as string | undefined) ||
+    ((import.meta as any).env?.CONTACT_TO as string | undefined);
 
   if (!apiKey || !to) {
-    return new Response(JSON.stringify({ ok: false, error: "Email service not configured." }), {
-      status: 500,
-      headers: { "content-type": "application/json" },
-    });
+    return new Response(
+      JSON.stringify({
+        ok: false,
+        error:
+          "Email service not configured. Set RESEND_API_KEY and CONTACT_TO in your .env (local) or Vercel Project → Settings → Environment Variables and redeploy.",
+      }),
+      {
+        status: 500,
+        headers: { "content-type": "application/json" },
+      }
+    );
   }
 
   let body: Body;
