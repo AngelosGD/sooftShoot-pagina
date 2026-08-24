@@ -212,9 +212,9 @@ html.dark .brand-mark {
     linear-gradient(90deg, var(--hairline) 1px, transparent 1px);
   background-size: 72px 72px;
   transform: rotate(-7deg);
-  -webkit-mask-image: radial-gradient(ellipse 68% 62% at 50% 42%, black 14%, transparent 78%);
-  mask-image: radial-gradient(ellipse 68% 62% at 50% 42%, black 14%, transparent 78%);
-  opacity: 0.22;
+  -webkit-mask-image: radial-gradient(ellipse 74% 68% at 50% 42%, black 24%, transparent 82%);
+  mask-image: radial-gradient(ellipse 74% 68% at 50% 42%, black 24%, transparent 82%);
+  opacity: 0.42;
 }
 
 .hero-curves {
@@ -228,19 +228,19 @@ html.dark .brand-mark {
   left: 50%;
   width: 140%;
   height: 520px;
-  border: 1px solid var(--hairline);
+  border: 1px solid var(--hairline-strong);
   border-radius: 50%;
   transform: translateX(-50%);
 }
 .hero-curve--a {
   top: -320px;
-  opacity: 0.35;
+  opacity: 0.55;
 }
 .hero-curve--b {
   top: -260px;
   width: 120%;
   height: 460px;
-  opacity: 0.2;
+  opacity: 0.32;
 }
 
 /* ---------- Hero rings + scan ---------- */
@@ -254,19 +254,19 @@ html.dark .brand-mark {
 }
 .hero-ring {
   position: absolute;
-  border: 1px solid var(--hairline);
+  border: 1px solid var(--hairline-strong);
   border-radius: 9999px;
 }
 .hero-ring--1 {
   width: 920px;
   height: 920px;
-  opacity: 0.45;
+  opacity: 0.6;
   animation: ringPulse 14s ease-in-out infinite;
 }
 .hero-ring--2 {
   width: 1240px;
   height: 1240px;
-  opacity: 0.22;
+  opacity: 0.32;
   animation: ringPulse 18s ease-in-out infinite reverse;
 }
 @keyframes ringPulse {
@@ -302,7 +302,7 @@ html.dark .brand-mark {
   width: 900px;
   height: 560px;
   margin-left: -450px;
-  background: radial-gradient(ellipse closest-side, rgb(var(--accent-rgb) / 0.05), transparent 72%);
+  background: radial-gradient(ellipse closest-side, rgb(var(--accent-rgb) / 0.075), transparent 72%);
   filter: blur(12px);
   pointer-events: none;
   animation: featuresGlow 18s ease-in-out infinite alternate;
@@ -318,13 +318,13 @@ html.dark .brand-mark {
   top: 2%;
   pointer-events: none;
   background-image:
-    linear-gradient(var(--hairline) 1px, transparent 1px),
-    linear-gradient(90deg, var(--hairline) 1px, transparent 1px);
+    linear-gradient(var(--hairline-strong) 1px, transparent 1px),
+    linear-gradient(90deg, var(--hairline-strong) 1px, transparent 1px);
   background-size: 56px 56px;
   transform: rotate(-3.5deg);
-  -webkit-mask-image: radial-gradient(ellipse 80% 68% at 50% 22%, black 14%, transparent 76%);
-  mask-image: radial-gradient(ellipse 80% 68% at 50% 22%, black 14%, transparent 76%);
-  opacity: 0.32;
+  -webkit-mask-image: radial-gradient(ellipse 84% 72% at 50% 22%, black 22%, transparent 82%);
+  mask-image: radial-gradient(ellipse 84% 72% at 50% 22%, black 22%, transparent 82%);
+  opacity: 0.52;
 }
 .features-glow--side {
   position: absolute;
@@ -332,7 +332,7 @@ html.dark .brand-mark {
   width: 520px;
   height: 520px;
   border-radius: 9999px;
-  background: radial-gradient(closest-side, rgb(var(--accent-rgb) / 0.03), transparent 72%);
+  background: radial-gradient(closest-side, rgb(var(--accent-rgb) / 0.055), transparent 72%);
   filter: blur(10px);
   pointer-events: none;
 }
@@ -348,13 +348,13 @@ html.dark .brand-mark {
   inset: -8%;
   pointer-events: none;
   background-image:
-    linear-gradient(var(--hairline) 1px, transparent 1px),
-    linear-gradient(90deg, var(--hairline) 1px, transparent 1px);
+    linear-gradient(var(--hairline-strong) 1px, transparent 1px),
+    linear-gradient(90deg, var(--hairline-strong) 1px, transparent 1px);
   background-size: 64px 64px;
   transform: rotate(4.5deg);
-  -webkit-mask-image: radial-gradient(ellipse 74% 64% at 50% 50%, black 12%, transparent 78%);
-  mask-image: radial-gradient(ellipse 74% 64% at 50% 50%, black 12%, transparent 78%);
-  opacity: 0.22;
+  -webkit-mask-image: radial-gradient(ellipse 78% 70% at 50% 50%, black 20%, transparent 84%);
+  mask-image: radial-gradient(ellipse 78% 70% at 50% 50%, black 20%, transparent 84%);
+  opacity: 0.4;
 }
 .download-glow {
   position: absolute;
@@ -378,12 +378,12 @@ html.dark .brand-mark {
   left: 50%;
   width: 130%;
   height: 480px;
-  border: 1px solid var(--hairline);
+  border: 1px solid var(--hairline-strong);
   border-radius: 50%;
   transform: translateX(-50%);
 }
-.download-curve--a { bottom: -300px; opacity: 0.3; }
-.download-curve--b { bottom: -240px; width: 110%; height: 420px; opacity: 0.18; }
+.download-curve--a { bottom: -300px; opacity: 0.45; }
+.download-curve--b { bottom: -240px; width: 110%; height: 420px; opacity: 0.28; }
 
 /* ---------- Hero entrance ---------- */
 
