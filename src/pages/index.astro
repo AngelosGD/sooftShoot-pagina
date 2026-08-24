@@ -89,65 +89,61 @@ import Layout from "../layouts/Layout.astro";
           <h2 class="text-3xl sm:text-5xl font-semibold tracking-[-0.03em] leading-[1.08]" data-i18n="features.title">Everything you need for flawless captures</h2>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 lg:gap-5">
           <!-- TODO: reemplazar por captura real de la app (editor de canvas) -->
-          <article class="reveal spot-card bento-card group p-6 sm:p-8 grid sm:grid-cols-[1fr_1.15fr] gap-6 sm:col-span-2 lg:col-span-7" style="--reveal-delay:60ms">
-            <div class="flex flex-col items-start">
-              <div class="bento-icon mb-5">
-                <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"/></svg>
+          <article class="reveal spot-card bento-card group p-7 sm:p-8 grid lg:grid-cols-[1.05fr_0.95fr] gap-7 sm:col-span-2 lg:col-span-8" style="--reveal-delay:60ms">
+            <div class="flex flex-col items-start justify-center">
+              <div class="bento-icon bento-icon-accent mb-5">
+                <svg class="size-[18px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"/></svg>
               </div>
-              <h3 class="font-semibold text-lg mb-2" data-i18n="card.edit.title">Complete editing</h3>
-              <p class="text-sm text-muted leading-relaxed" data-i18n="card.edit.desc">Background, padding, filters, borders, shadows, rounded corners, 3D rotation and precise cropping.</p>
+              <h3 class="font-semibold text-[1.15rem] leading-tight mb-2.5" data-i18n="card.edit.title">Complete editing</h3>
+              <p class="text-[13.5px] text-muted leading-relaxed max-w-[32ch]" data-i18n="card.edit.desc">Background, padding, filters, borders, shadows, rounded corners, 3D rotation and precise cropping.</p>
             </div>
-            <figure class="shot-placeholder min-h-[200px] sm:min-h-[260px]" role="img" aria-label="soofShoot canvas editor preview">
-              <span class="absolute left-3 top-3 size-3.5 rounded-[3px] border-l-2 border-t-2 border-accent/50"></span>
-              <span class="absolute right-3 top-3 size-3.5 rounded-[3px] border-r-2 border-t-2 border-accent/50"></span>
-              <span class="absolute bottom-3 left-3 size-3.5 rounded-[3px] border-b-2 border-l-2 border-accent/50"></span>
-              <span class="absolute bottom-3 right-3 size-3.5 rounded-[3px] border-b-2 border-r-2 border-accent/50"></span>
+            <figure class="shot-placeholder min-h-[210px] lg:min-h-[280px]" role="img" aria-label="soofShoot canvas editor preview">
+              <span class="absolute left-3 top-3 size-3 rounded-[3px] border-l-2 border-t-2 border-accent/25"></span>
+              <span class="absolute right-3 top-3 size-3 rounded-[3px] border-r-2 border-t-2 border-accent/25"></span>
+              <span class="absolute bottom-3 left-3 size-3 rounded-[3px] border-b-2 border-l-2 border-accent/25"></span>
+              <span class="absolute bottom-3 right-3 size-3 rounded-[3px] border-b-2 border-r-2 border-accent/25"></span>
               <figcaption class="absolute inset-0 flex items-center justify-center px-4 text-center">
-                <span class="font-mono text-xs tracking-wide text-muted/70 select-none" data-i18n="placeholder">[ app screenshot here ]</span>
+                <span class="font-mono text-[11px] tracking-wide text-muted/60 select-none" data-i18n="placeholder">[ app screenshot here ]</span>
               </figcaption>
             </figure>
           </article>
 
           <!-- TODO: reemplazar por captura real de la app (mockups de dispositivos) -->
-          <article class="reveal spot-card bento-card group p-6 sm:p-8 flex flex-col sm:col-span-2 lg:col-span-5" style="--reveal-delay:120ms">
-            <div class="flex items-start gap-4 mb-5">
-              <div class="bento-icon">
-                <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m9.53 16.122-3.475 3.475m0 0a1.5 1.5 0 0 1-2.12-2.12l3.475-3.475m2.12 2.12a3.375 3.375 0 0 0 3.708-4.092m0 0a3.375 3.375 0 0 0-4.092-3.708m0 0a3.375 3.375 0 0 0-3.708 4.092m0 0a3.375 3.375 0 0 0 4.092 3.708m3.708-4.092 3.475-3.475m0 0a1.5 1.5 0 0 1 2.12 2.12l-3.475 3.475"/></svg>
-              </div>
-              <div>
-                <h3 class="font-semibold text-lg mb-1" data-i18n="card.mockup.title">Pro mockups</h3>
-                <p class="text-sm text-muted leading-relaxed" data-i18n="card.mockup.desc">Overlay your captures on iPhone, iPad or Mac. Perfect for presentations and portfolios.</p>
-              </div>
+          <article class="reveal spot-card bento-card group p-7 sm:p-7 flex flex-col sm:col-span-2 lg:col-span-4" style="--reveal-delay:120ms">
+            <div class="bento-icon bento-icon-accent mb-5">
+              <svg class="size-[18px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="m9.53 16.122-3.475 3.475m0 0a1.5 1.5 0 0 1-2.12-2.12l3.475-3.475m2.12 2.12a3.375 3.375 0 0 0 3.708-4.092m0 0a3.375 3.375 0 0 0-4.092-3.708m0 0a3.375 3.375 0 0 0-3.708 4.092m0 0a3.375 3.375 0 0 0 4.092 3.708m3.708-4.092 3.475-3.475m0 0a1.5 1.5 0 0 1 2.12 2.12l-3.475 3.475"/></svg>
             </div>
-            <figure class="shot-placeholder mt-auto aspect-[16/10]" role="img" aria-label="soofShoot device mockups preview">
-              <span class="absolute left-3 top-3 size-3.5 rounded-[3px] border-l-2 border-t-2 border-accent/50"></span>
-              <span class="absolute right-3 top-3 size-3.5 rounded-[3px] border-r-2 border-t-2 border-accent/50"></span>
-              <span class="absolute bottom-3 left-3 size-3.5 rounded-[3px] border-b-2 border-l-2 border-accent/50"></span>
-              <span class="absolute bottom-3 right-3 size-3.5 rounded-[3px] border-b-2 border-r-2 border-accent/50"></span>
+            <h3 class="font-semibold text-[1.05rem] leading-tight mb-2" data-i18n="card.mockup.title">Pro mockups</h3>
+            <p class="text-[13px] text-muted leading-relaxed mb-6" data-i18n="card.mockup.desc">Overlay your captures on iPhone, iPad or Mac. Perfect for presentations and portfolios.</p>
+            <figure class="shot-placeholder mt-auto aspect-[4/3] lg:aspect-[4/3.4]" role="img" aria-label="soofShoot device mockups preview">
+              <span class="absolute left-3 top-3 size-3 rounded-[3px] border-l-2 border-t-2 border-accent/25"></span>
+              <span class="absolute right-3 top-3 size-3 rounded-[3px] border-r-2 border-t-2 border-accent/25"></span>
+              <span class="absolute bottom-3 left-3 size-3 rounded-[3px] border-b-2 border-l-2 border-accent/25"></span>
+              <span class="absolute bottom-3 right-3 size-3 rounded-[3px] border-b-2 border-r-2 border-accent/25"></span>
               <figcaption class="absolute inset-0 flex items-center justify-center px-4 text-center">
-                <span class="font-mono text-xs tracking-wide text-muted/70 select-none" data-i18n="placeholder">[ app screenshot here ]</span>
+                <span class="font-mono text-[11px] tracking-wide text-muted/60 select-none" data-i18n="placeholder">[ app screenshot here ]</span>
               </figcaption>
             </figure>
           </article>
 
-          <article class="reveal spot-card bento-card group p-7 lg:col-span-4" style="--reveal-delay:180ms">
+          <article class="reveal spot-card bento-card group p-6 lg:col-span-5" style="--reveal-delay:180ms">
             <span class="num-tag">01</span>
-            <h3 class="font-semibold text-lg mt-4 mb-2" data-i18n="card.capture.title">Smart capture</h3>
-            <p class="text-sm text-muted leading-relaxed" data-i18n="card.capture.desc">Select any region with customizable shortcuts. Capture instantly, no interruptions.</p>
+            <h3 class="font-semibold text-[1.05rem] leading-tight mt-4 mb-2" data-i18n="card.capture.title">Smart capture</h3>
+            <p class="text-[13px] text-muted leading-relaxed" data-i18n="card.capture.desc">Select any region with customizable shortcuts. Capture instantly, no interruptions.</p>
           </article>
 
-          <article class="reveal spot-card bento-card group p-7 lg:col-span-4" style="--reveal-delay:240ms">
+          <article class="reveal spot-card bento-card group p-6 lg:col-span-3" style="--reveal-delay:240ms">
             <span class="num-tag">02</span>
-            <h3 class="font-semibold text-lg mt-4 mb-2" data-i18n="card.ocr.title">OCR + Code</h3>
-            <p class="text-sm text-muted leading-relaxed" data-i18n="card.ocr.desc">Extract text with Tesseract.js. Auto-detects and formats code to copy instantly.</p>
+            <h3 class="font-semibold text-[1.05rem] leading-tight mt-4 mb-2" data-i18n="card.ocr.title">OCR + Code</h3>
+            <p class="text-[13px] text-muted leading-relaxed" data-i18n="card.ocr.desc">Extract text with Tesseract.js. Auto-detects and formats code to copy instantly.</p>
           </article>
 
-          <article class="reveal spot-card bento-card group p-7 lg:col-span-4" style="--reveal-delay:300ms">
+          <article class="reveal spot-card bento-card group p-6 sm:col-span-2 lg:col-span-4" style="--reveal-delay:300ms">
             <span class="num-tag">03</span>
-            <h3 class="font-semibold text-lg mt-4 mb-2" data-i18n="card.export.title">Versatile export</h3>
-            <p class="text-sm text-muted leading-relaxed" data-i18n="card.export.desc">PNG, JPEG or WebP. Batch-export to PDF, copy to clipboard or insert straight into Word.</p>
+            <h3 class="font-semibold text-[1.05rem] leading-tight mt-4 mb-2" data-i18n="card.export.title">Versatile export</h3>
+            <p class="text-[13px] text-muted leading-relaxed" data-i18n="card.export.desc">PNG, JPEG or WebP. Batch-export to PDF, copy to clipboard or insert straight into Word.</p>
           </article>
 
           <a href="#download" class="reveal spot-card bento-card group p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-7 sm:col-span-2 lg:col-span-12 cursor-pointer" style="--reveal-delay:360ms">

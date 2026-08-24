@@ -42,7 +42,7 @@ Accent rules: ONE emerald accent, used sparingly (eyebrow dots, num tags, marque
 1. **Capsule nav** — floating glass pill (`max-w-3xl rounded-full`); `#nav-sentinel` feeds an IntersectionObserver toggling `.nav-scrolled` (denser bg + shadow + h shrink). Center links hidden on mobile.
 2. **Centered hero** — `.dot-grid` masked layer + `.orb-layer` with two drifting orbs (emerald top-left, neutral bottom-right); staggered entrance via `.hero-e`.
 3. **Marquee strip** — the 5 mono capability pills scroll infinitely (two duplicated `.marquee-group`s; pause on hover; edge fade mask).
-4. **Features bento** — 12-col: Edición completa `lg:col-span-7` (text+placeholder split) + Mockups `lg:col-span-5` (both with `.shot-placeholder` viewfinder slots), then three numbered cards `lg:col-span-4` (`.num-tag`, no icons), then clickable "100% gratis" banner `lg:col-span-12`.
+4. **Features bento** — 12-col: Edición completa `lg:col-span-8` (text + placeholder side-by-side) + Mockups `lg:col-span-4` (stacked), then `5/3/4` (`Smart capture`/`OCR`/`Export`), then clickable "100% gratis" banner `lg:col-span-12`. Gaps `lg:gap-5`, desaturated treatment (no solid emerald fills; icons use `var(--wash)` and only `bento-icon-accent` shows faint emerald on hover).
 5. **Download** — centered, `.pulse-orb` breathing glow behind pill buttons.
 6. **Footer** — giant `.footer-mark` watermark + bottom bar (logo, ©, links).
 
