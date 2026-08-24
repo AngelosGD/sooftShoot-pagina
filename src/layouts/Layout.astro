@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="es" class="dark">
+<html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#07070a" />
+    <meta name="theme-color" content="#fdfdfc" id="theme-color" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>soofShoot — Captura, edita y lleva tus capturas a otro nivel</title>
@@ -12,6 +12,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/src/styles/globals.css" />
+    <script is:inline>
+      (function () {
+        try {
+          var stored = localStorage.getItem("theme");
+          var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          var theme = stored ? stored : prefersDark ? "dark" : "light";
+          if (theme === "dark") document.documentElement.classList.add("dark");
+          document
+            .querySelector('meta[name="theme-color"]')
+            ?.setAttribute("content", theme === "dark" ? "#07070a" : "#fdfdfc");
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body class="bg-background text-foreground font-sans antialiased">
     <slot />

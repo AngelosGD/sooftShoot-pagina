@@ -1,12 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
-const logo = `<svg viewBox="0 0 48 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect x="0" y="1" width="15" height="18" rx="3.5" stroke="currentColor" stroke-width="1.5"/>
-  <rect x="33" y="1" width="15" height="18" rx="3.5" stroke="currentColor" stroke-width="1.5"/>
-  <line x1="15" y1="10" x2="33" y2="10" stroke="currentColor" stroke-width="1.5"/>
-  <text x="24" y="14.5" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="10" fill="currentColor" text-anchor="middle">SS</text>
-</svg>`;
 ---
 
 <Layout>
@@ -14,18 +7,24 @@ const logo = `<svg viewBox="0 0 48 20" fill="none" xmlns="http://www.w3.org/2000
 
   <header id="site-nav" class="fixed top-4 inset-x-0 z-50 px-4">
     <div class="nav-capsule mx-auto max-w-3xl">
-      <a href="/" class="flex items-center gap-2 text-sm font-semibold tracking-tight">
-        <span class="size-6 text-foreground" set:html={logo} />
+      <a href="/" class="flex items-center gap-2.5 text-sm font-semibold tracking-tight">
+        <img src="/logosintexto.png" alt="soofShoot" width="28" height="28" class="brand-mark size-7 object-contain" loading="eager" />
         soofShoot
       </a>
       <nav class="hidden sm:flex items-center gap-1 text-sm text-muted">
         <a href="#features" class="nav-pill">Funciones</a>
         <a href="#download" class="nav-pill">Descargar</a>
       </nav>
-      <a href="https://github.com/AngelosGD/soofShoot" class="gh-chip" target="_blank" rel="noopener noreferrer">
-        GitHub
-        <svg class="size-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17 17 7m0 0H8m9 0v9"/></svg>
-      </a>
+      <div class="flex items-center gap-2">
+        <button id="theme-toggle" type="button" aria-label="Cambiar tema" class="theme-toggle">
+          <svg class="icon-sun size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v1.5M12 20.25v1.5M4.22 4.22l1.06 1.06M18.72 18.72l1.06 1.06M3 12h1.5M20.25 12H21.75M4.22 19.78l1.06-1.06M18.72 5.28l1.06-1.06M12 8.25A3.75 3.75 0 1 1 12 15.75A3.75 3.75 0 0 1 12 8.25Z"/></svg>
+          <svg class="icon-moon size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21.752 15.002A9.718 9.718 0 0 1 12 21.75 9.75 9.75 0 0 1 12 2.25c0 1.33.266 2.597.748 3.752A5.25 5.25 0 0 0 21.752 15.002Z"/></svg>
+        </button>
+        <a href="https://github.com/AngelosGD/soofShoot" class="gh-chip" target="_blank" rel="noopener noreferrer">
+          GitHub
+          <svg class="size-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17 17 7m0 0H8m9 0v9"/></svg>
+        </a>
+      </div>
     </div>
   </header>
 
@@ -49,18 +48,18 @@ const logo = `<svg viewBox="0 0 48 20" fill="none" xmlns="http://www.w3.org/2000
           <span class="text-foreground"> Sin cuentas, sin límites, sin distracciones.</span>
         </p>
         <div class="hero-e flex flex-wrap justify-center gap-3" style="animation-delay:0.3s">
-          <a href="#download" class="group inline-flex items-center gap-2 px-7 py-3 rounded-full bg-foreground text-background font-medium text-sm cursor-pointer transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_10px_40px_-10px_rgb(52_211_153/0.5)] active:translate-y-0 active:scale-[0.97]">
+          <a href="#download" class="group inline-flex items-center gap-2 px-7 py-3 rounded-full bg-foreground text-background font-medium text-sm cursor-pointer transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_10px_40px_-10px_rgb(var(--accent-rgb)/0.5)] active:translate-y-0 active:scale-[0.97]">
             Descargar gratis
             <svg class="size-4 transition-transform duration-300 ease-out group-hover:translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"/></svg>
           </a>
-          <a href="#features" class="inline-flex items-center px-7 py-3 rounded-full border border-border text-sm font-medium transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/[0.04] active:translate-y-0 active:scale-[0.97]">
+          <a href="#features" class="inline-flex items-center px-7 py-3 rounded-full border border-border text-sm font-medium transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-foreground/15 hover:bg-[var(--wash)] active:translate-y-0 active:scale-[0.97]">
             Conocer más
           </a>
         </div>
       </div>
     </section>
 
-    <section aria-label="Características clave" class="marquee-strip relative border-y border-white/[0.06] py-5 overflow-hidden">
+    <section aria-label="Características clave" class="marquee-strip relative border-y border-border py-5 overflow-hidden">
       <div class="marquee-track">
         <ul class="marquee-group">
           <li class="marquee-item">Atajos personalizables</li>
@@ -171,7 +170,7 @@ const logo = `<svg viewBox="0 0 48 20" fill="none" xmlns="http://www.w3.org/2000
         <h2 class="text-4xl sm:text-6xl font-semibold tracking-[-0.04em] leading-[1.05] mb-5">Descargá soofShoot</h2>
         <p class="text-muted max-w-md mx-auto mb-10 leading-relaxed">Disponible para Windows. Próximamente en macOS.</p>
         <div class="flex flex-wrap justify-center gap-4">
-          <a class="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-foreground text-background font-medium cursor-pointer transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_12px_48px_-12px_rgb(52_211_153/0.55)] active:translate-y-0 active:scale-[0.97]">
+          <a class="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-foreground text-background font-medium cursor-pointer transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_12px_48px_-12px_rgb(var(--accent-rgb)/0.55)] active:translate-y-0 active:scale-[0.97]">
             <svg class="size-5 transition-transform duration-300 ease-out group-hover:-translate-y-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M3.5 2.75a.75.75 0 0 1 .75-.75h12.5a.75.75 0 0 1 .53.22l4 4a.75.75 0 0 1 .22.53v13.5a.75.75 0 0 1-.75.75H4.25a.75.75 0 0 1-.75-.75V2.75Zm2.25.75v17h12.5V7.56L14.44 3.5H5.75Z"/><path d="M10.5 12.44V8.25a.75.75 0 0 1 1.5 0v4.19l1.72-1.72a.75.75 0 1 1 1.06 1.06l-3 3a.75.75 0 0 1-1.06 0l-3-3a.75.75 0 1 1 1.06-1.06l1.72 1.72Z"/></svg>
             Descargar para Windows
           </a>
@@ -184,13 +183,13 @@ const logo = `<svg viewBox="0 0 48 20" fill="none" xmlns="http://www.w3.org/2000
     </section>
   </main>
 
-  <footer class="relative border-t border-white/[0.06] overflow-hidden">
+  <footer class="relative border-t border-border overflow-hidden">
     <p class="footer-mark" aria-hidden="true">soofShoot</p>
-    <div class="relative border-t border-white/[0.06]">
+    <div class="relative border-t border-border">
       <div class="mx-auto max-w-6xl px-4 sm:px-6 py-8">
         <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted">
-          <div class="flex items-center gap-2">
-            <span class="size-6 text-foreground" set:html={logo} />
+          <div class="flex items-center gap-2.5">
+            <img src="/logosintexto.png" alt="soofShoot" width="24" height="24" class="brand-mark size-6 object-contain" loading="lazy" />
             <span>soofShoot</span>
           </div>
           <p>&copy; {new Date().getFullYear()} soofShoot. Hecho con dedicación.</p>
@@ -206,6 +205,21 @@ const logo = `<svg viewBox="0 0 48 20" fill="none" xmlns="http://www.w3.org/2000
 
 <script>
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Tema: toggle claro/oscuro
+  const themeToggle = document.getElementById("theme-toggle");
+  const themeColor = document.querySelector('meta[name="theme-color"]');
+  function applyTheme(theme) {
+    document.documentElement.classList.toggle("dark", theme === "dark");
+    try {
+      localStorage.setItem("theme", theme);
+    } catch {}
+    if (themeColor) themeColor.setAttribute("content", theme === "dark" ? "#07070a" : "#fdfdfc");
+  }
+  themeToggle?.addEventListener("click", () => {
+    var isDark = document.documentElement.classList.contains("dark");
+    applyTheme(isDark ? "light" : "dark");
+  });
 
   // Scroll-reveal con stagger (--reveal-delay por elemento)
   const revealEls = document.querySelectorAll<HTMLElement>(".reveal");
